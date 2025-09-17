@@ -1,4 +1,6 @@
-# MLIR WWW
+# MLIR WWW JA-JP
+
+This repository is an unofficial fork for translation to Japanese.
 
 This contains the source code for https://mlir.lemon.ski/ ; which is rendered
 from the `gh-pages` branch of the same repo using GitHub pages.
@@ -29,5 +31,5 @@ so consider checking out only the main branch. For example, if using
 [gh](https://cli.github.com/), only the following is needed
 
 ```sh
-gh repo clone llvm/mlir-www -- --single-branch --branch main
+gh repo clone llvm/mlir-www -- --single-branch --branch translated
 ```
