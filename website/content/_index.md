@@ -4,15 +4,13 @@ lastmod: 2019-10-26T15:26:15Z
 publishdate: 2018-11-23T15:26:15Z
 ---
 
-# Multi-Level Intermediate Representation Overview
+# MLIR(Multi-Level Intermediate Representation) 概要
 
-The MLIR project is a novel approach to building reusable and extensible
-compiler infrastructure. MLIR aims to address software fragmentation, improve
-compilation for heterogeneous hardware, significantly reduce the cost of
-building domain specific compilers, and aid in connecting existing compilers
-together.
+MLIR プロジェクトは、再利用性と拡張性の高いコンパイル基盤を構築する新たな取り組みです。
+MLIRの狙いは、ソフトウェアの断片化への対処、ヘテロジニアスなハードウェア向けコンパイル方法の改善、
+ドメイン固有コンパイラの構築コストの大幅な低減、そして既存のコンパイラ同士の接続を支援することです。
 
-# Weekly Public Meeting
+# 週次公開ミーティング
 
 We host a **weekly public meeting** about MLIR and the ecosystem.
 To be notified of the next meeting, please subscribe to the
@@ -28,7 +26,7 @@ If you’d like to discuss a particular topic or have questions, please add it t
 The meetings are recorded and published in the [talks](talks/) section.
 
 
-## More resources
+## 他の資料
 
 For more information on MLIR, please see:
 
