@@ -1,6 +1,6 @@
 # MLIR WWW
 
-This contains the source code for https://mlir.llvm.org/ ; which is rendered
+This contains the source code for https://mlir.lemon.ski/ ; which is rendered
 from the `gh-pages` branch of the same repo using GitHub pages.
 
 To contribute, feel free to fork this repository and send a pull-request.
@@ -16,7 +16,7 @@ website. The source pages are written in Markdown format under the
 
 A large part of the documentation is auto-generated from the MLIR source
 code. See the workflow `.github/workflows/main.yml` for the instructions
-to reproduce the entirety of https://mlir.llvm.org/ locally.
+to reproduce the entirety of https://mlir.lemon.ski/ locally.
 
 After running the code from the workflow, download hugo on your machine, and
 run `hugo server` from the `website` directory. You can then access a local

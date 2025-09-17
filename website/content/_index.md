@@ -90,5 +90,5 @@ the use-def chains and by replacing cross-function references with explicit
 ## Citing MLIR
 
 Please see the [FAQ
-entry](https://mlir.llvm.org/getting_started/Faq/#how-to-refer-to-mlir-in-publications-is-there-an-accompanying-paper)
+entry](https://mlir.lemon.ski/getting_started/Faq/#how-to-refer-to-mlir-in-publications-is-there-an-accompanying-paper)
 on how to cite MLIR in publications.

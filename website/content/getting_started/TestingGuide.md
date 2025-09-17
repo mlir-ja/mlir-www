@@ -473,7 +473,7 @@ To reduce cognitive load, use consistent names across MLIR and FileCheck (e.g.,
 `%arg0` and `A0` above are not consistent). Also, instead of using generic
 names like `%arg0` or `%vec_i1`, encode some additional context by using names
 from existing documentation. For example from the Op documentation,
-[`vector.maskedload`](https://mlir.llvm.org/docs/Dialects/Vector/#vectormaskedload-vectormaskedloadop),
+[`vector.maskedload`](https://mlir.lemon.ski/docs/Dialects/Vector/#vectormaskedload-vectormaskedloadop),
 in this case, you can use `%base`, `%mask` and `%pass_thru`.
 
 ```mlir

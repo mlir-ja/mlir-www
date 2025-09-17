@@ -72,7 +72,7 @@ otherwise, see the
 
 ### Deprecation of `gpu-to-(cubin|hsaco)` in favor of GPU compilation attributes
 
-[GPU compilation attributes](https://mlir.llvm.org/docs/Dialects/GPU/#gpu-compilation) are a completely new mechanism for handling the compilation
+[GPU compilation attributes](https://mlir.lemon.ski/docs/Dialects/GPU/#gpu-compilation) are a completely new mechanism for handling the compilation
 of GPU modules down to binary or other formats in an extensible way. This mechanism lifts
 many current restrictions the GPU serialization passes had, like being present only if the
 CUDA driver is there or not linking to LibDevice.

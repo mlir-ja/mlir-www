@@ -1,5 +1,5 @@
-baseURL = "https://mlir.llvm.org/"
-languageCode = "en-us"
+baseURL = "https://mlir.lemon.ski/"
+languageCode = "ja-jp"
 title = "MLIR"
 theme = "mlir"
 
@@ -9,7 +9,7 @@ metaDataFormat = "yaml"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
-defaultContentLanguage = "en"
+defaultContentLanguage = "ja"
 defaultContentLanguageInSubdir= false
 enableMissingTranslationPlaceholders = false
 

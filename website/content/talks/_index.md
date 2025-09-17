@@ -180,16 +180,16 @@ to [this public calendar](https://calendar.google.com/calendar/u/0?cid=N2EzMDU3N
 [slides](/OpenMeetings/2021-07-22-MLIR-data-visualization.pdf) -
 [recording](https://youtu.be/FEXab1sgZLA)
 * 2021-07-15: From MHLO To Linalg in IREE ;
-[slides](https://mlir.llvm.org/OpenMeetings/2021-07-15-From-MHLO-To-Linalg-in-IREE.pdf) -
+[slides](https://mlir.lemon.ski/OpenMeetings/2021-07-15-From-MHLO-To-Linalg-in-IREE.pdf) -
 [recording](https://youtu.be/GkorNMHPFPI)
 * 2021-06-24: Typedefs in MLIR ;
-[slides](https://mlir.llvm.org/OpenMeetings/2021-06-24-Typedefs-in-MLIR.pdf) -
+[slides](https://mlir.lemon.ski/OpenMeetings/2021-06-24-Typedefs-in-MLIR.pdf) -
 [recording](https://www.youtube.com/watch?v=hqcM6fJWntM)
 * 2021-06-17: Defining operations, types, attributes, and dialects at runtime ;
-[slides](https://mlir.llvm.org/OpenMeetings/2021-06-17-Dynamic-Dialects.pdf) -
+[slides](https://mlir.lemon.ski/OpenMeetings/2021-06-17-Dynamic-Dialects.pdf) -
 [recording](https://youtu.be/bxFpvjUO288)
 * 2021-06-10: MLIR Language Server (Modern IDE features for `.mlir` files) ;
-[slides](https://mlir.llvm.org/OpenMeetings/2021-06-10-Language-Server.pdf) -
+[slides](https://mlir.lemon.ski/OpenMeetings/2021-06-10-Language-Server.pdf) -
 [recording](https://youtu.be/HZx1Wal3loA)
 * 2021-05-06: Alibaba Group: Disc revisit & future discussion ;
 [slides](https://drive.google.com/file/d/1RA3VPdTGrYCE-qt2mURrrzbxD9Xl6y5L/view?usp=sharing) -

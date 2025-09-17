@@ -11,7 +11,7 @@ weight: 1
   Computation](https://ieeexplore.ieee.org/abstract/document/9370308) -
   Chris Lattner, Mehdi Amini, Uday Bondhugula, Albert Cohen, Andy Davis, Jacques Pienaar, River Riddle, Tatiana Shpeisman, Nicolas Vasilache, Oleksandr Zinenko - In proceedings of 2021 IEEE/ACM International Symposium on Code Generation and Optimization (CGO) - pp. 2-14 -
   A preprint is available on [arXiv](https://arxiv.org/abs/2002.11054), see
-  [FAQ](https://mlir.llvm.org/getting_started/Faq/#how-to-refer-to-mlir-in-publications-is-there-an-accompanying-paper)
+  [FAQ](https://mlir.lemon.ski/getting_started/Faq/#how-to-refer-to-mlir-in-publications-is-there-an-accompanying-paper)
   for citation how-to.
 
 ### About MLIR and MLIR Components

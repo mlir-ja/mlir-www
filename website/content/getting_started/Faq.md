@@ -42,7 +42,7 @@ publication.
 
 ## Why is \<small feature\> not available in MLIR?
 
-On general basis, there is never a reason why a small feature is not available in MLIR other than nobody needed it enough to implement it. Consider submitting a patch. For larger features and dialects, follow the [request-for-comments](https://mlir.llvm.org/getting_started/DeveloperGuide/#guidelines-on-contributing-a-new-dialect-or-important-components) process.
+On general basis, there is never a reason why a small feature is not available in MLIR other than nobody needed it enough to implement it. Consider submitting a patch. For larger features and dialects, follow the [request-for-comments](https://mlir.lemon.ski/getting_started/DeveloperGuide/#guidelines-on-contributing-a-new-dialect-or-important-components) process.
 
 ## MLIR is too heavy framework, should I just reimplement my own compiler from scratch?
 
@@ -60,7 +60,7 @@ core of MLIR can take around 1MB.
 
 ## What is the difference between the Tensor and Vector types?
 
-1) Conceptual: vectors are meant to and occur in lower level dialects - often where you expect hardware to have registers of that size. Tensors model higher-level "closer to the source" abstract representation. This is reflected in the abstraction modeled by the operations from the [`vector` dialect](https://mlir.llvm.org/docs/Dialects/Vector/), while Tensors would be more naturally present in the operations of the [`linalg` dialect](https://mlir.llvm.org/docs/Dialects/Linalg/).
+1) Conceptual: vectors are meant to and occur in lower level dialects - often where you expect hardware to have registers of that size. Tensors model higher-level "closer to the source" abstract representation. This is reflected in the abstraction modeled by the operations from the [`vector` dialect](https://mlir.lemon.ski/docs/Dialects/Vector/), while Tensors would be more naturally present in the operations of the [`linalg` dialect](https://mlir.lemon.ski/docs/Dialects/Linalg/).
 2) Tensors can be dynamically shaped, unranked, or have 0 dimensions ; but Vectors can't be.
 3) You can have a memref (a buffer in memory) containing Vectors but you can't have a memref of a tensor type.
 4) The set of allowed element types is different: the Tensor type isn't limited while Vector is limited to float and integer types.
@@ -81,7 +81,7 @@ Dialects for which an entity (Operation, Type, or Attribute) can be created by
 the pass, other than for Dialects that would already be in the input.
 For example, a `convertLinalgToLoops` pass would declare the `SCF` Dialect as
 dependent, but does not need to declare `Linalg`. See also
-[dependent dialects](https://mlir.llvm.org/docs/PassManagement/#dependent-dialects)
+[dependent dialects](https://mlir.lemon.ski/docs/PassManagement/#dependent-dialects)
 in the pass infrastructure documentation.
 
 Finally, dialects can be *registered* with the context. The sole purpose of the
@@ -126,8 +126,8 @@ Attribute getConstantAttr(Operation *constantOp) {
 
 ## What is the difference between traits and interfaces?
 
-Both [traits](https://mlir.llvm.org/docs/Traits/) and
-[interfaces](https://mlir.llvm.org/docs/Interfaces) can be used to inject common
+Both [traits](https://mlir.lemon.ski/docs/Traits/) and
+[interfaces](https://mlir.lemon.ski/docs/Interfaces) can be used to inject common
 behavior into operations, types and attributes without introducing duplication.
 However, conceptually these are quite different.
 
@@ -159,14 +159,14 @@ It is impossible in the general case. Structured memory reference (`memref`) typ
 
 It is, however, possible to define operations that create pointer-like types out of a `memref` as well as operations that, conversely, create `memref` out of pointers combined with additional information. Before implementing such operations, dialect authors are advised to carefully consider the implication of such operations on aliasing properties of the resulting IR.
 
-Interoperability with C is often cited to motivate an opaque cast from `memref`s to pointers. The [LLVM IR target](https://mlir.llvm.org/docs/TargetLLVMIR/#ranked-memref-types) provides an interface compatible with C for a well-defined subset of `memrefs` with [strided layout](https://mlir.llvm.org/docs/Dialects/Builtin/#strided-memref). At the function boundary, it even provides a minimalist support for passing memrefs as [bare pointers](https://mlir.llvm.org/docs/TargetLLVMIR/#bare-pointer-calling-convention-for-ranked-memref) provided their sizes are known statically and their layout is trivially identity.
+Interoperability with C is often cited to motivate an opaque cast from `memref`s to pointers. The [LLVM IR target](https://mlir.lemon.ski/docs/TargetLLVMIR/#ranked-memref-types) provides an interface compatible with C for a well-defined subset of `memrefs` with [strided layout](https://mlir.lemon.ski/docs/Dialects/Builtin/#strided-memref). At the function boundary, it even provides a minimalist support for passing memrefs as [bare pointers](https://mlir.lemon.ski/docs/TargetLLVMIR/#bare-pointer-calling-convention-for-ranked-memref) provided their sizes are known statically and their layout is trivially identity.
 
 ## What's with "op symbol declaration cannot have public visibility"?
 
 A common mistake is to try to provide a function declaration (that is a function
 without a body) but leaving it "public". Declaration must be private, only
 definitions can be public in the MLIR symbol system. See the
-[symbol visibility](https://mlir.llvm.org/docs/SymbolsAndSymbolTables/#symbol-visibility)
+[symbol visibility](https://mlir.lemon.ski/docs/SymbolsAndSymbolTables/#symbol-visibility)
 documentation.
 
 ## I'm confused about iterating on `getUsers()` vs `getUses()`: what's the difference?
@@ -177,7 +177,7 @@ iterating on the "uses" of `%0` you would see two instances of `OpOperand` (one 
 use in `test.op`), whereas iterating on the "users" of `%0` would yield directly two
 `Operation *` corresponding to `test.op`. Note that you see `test.op` twice as it is
 twice a user of `%0`, it's up to the call site to use a set to unique these if needed.
-[The tutorial on use-def chains](https://mlir.llvm.org/docs/Tutorials/UnderstandingTheIRStructure/#traversing-the-def-use-chains) may help understand the details as well.
+[The tutorial on use-def chains](https://mlir.lemon.ski/docs/Tutorials/UnderstandingTheIRStructure/#traversing-the-def-use-chains) may help understand the details as well.
 
 ## How to programmatically obtain the "name" of the SSA value (`%foo`)?
 

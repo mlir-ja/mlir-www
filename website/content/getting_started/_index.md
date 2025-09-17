@@ -8,7 +8,7 @@ weight: 10
 Don't miss the MLIR Tutorial!
 [slides](https://llvm.org/devmtg/2020-09/slides/MLIR_Tutorial.pdf) -
 [recording](https://www.youtube.com/watch?v=Y4SvqTtOIDk) -
-[online step-by-step](https://mlir.llvm.org/docs/Tutorials/Toy/)
+[online step-by-step](https://mlir.lemon.ski/docs/Tutorials/Toy/)
 
 
 Please refer to the [LLVM Getting Started](https://llvm.org/docs/GettingStarted.html)
