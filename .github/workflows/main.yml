@@ -3,10 +3,10 @@ name: github pages
 on:
   push:
     branches:
-    - main
+    - translated
   schedule:
-    # Always regenerate once every 4 hour
-    - cron:  '15 */4 * * *'
+    # Always regenerate once a day
+    - cron:  '0 0 * * *'
   pull_request:
   workflow_dispatch:
 
@@ -36,8 +36,8 @@ jobs:
     - name: Clone LLVM repo
       uses: actions/checkout@v3
       with:
-        repository: llvm/llvm-project
-        ref: 'main'
+        repository: mlir-ja/llvm-project
+        ref: 'translated'
         path: 'llvm_src'
 
     - name: Build MLIR Dialect docs & doxygen src
@@ -86,11 +86,11 @@ jobs:
       run: |
         cd website
         hugo --minify -d ../public
-        echo -n mlir.llvm.org > ../public/CNAME
+        echo -n mlir.lemon.ski > ../public/CNAME
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/translated'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
