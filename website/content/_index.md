@@ -12,18 +12,19 @@ MLIRの狙いは、ソフトウェアの断片化への対処、ヘテロジニ�
 
 # 週次公開ミーティング
 
-We host a **weekly public meeting** about MLIR and the ecosystem.
-To be notified of the next meeting, please subscribe to the
+MLIR とエコシステムについて話す **週次の公開ミーティング** を開催しています。
+次回のミーティング通知を受け取るには、Discourse の
 [MLIR Announcements](https://discourse.llvm.org/c/mlir/mlir-announcements/44)
-category on Discourse.
+カテゴリを登録してください。
 
-You can register to [this public calendar](https://calendar.google.com/calendar/u/0?cid=N2EzMDU3NTBjMjkzYWU5MTY5NGNlMmQ3YjJlN2JjNWEyYjViNjg1NTRmODcxOWZiOTU1MmIzNGQxYjkwNGJkZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
-to keep up-to-date with the schedule.
+[この公開カレンダー](https://calendar.google.com/calendar/u/0?cid=N2EzMDU3NTBjMjkzYWU5MTY5NGNlMmQ3YjJlN2JjNWEyYjViNjg1NTRmODcxOWZiOTU1MmIzNGQxYjkwNGJkZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
+を登録することで最新のスケジュールを確認できます。
 
-If you’d like to discuss a particular topic or have questions, please add it to the
-[agenda doc](https://docs.google.com/document/d/1y2YlcOVMPocQjSFi3X6gYGRjA0onyqr41ilXji10phw/edit#).
+あるトピックについて議論したい、あるいは質問がある場合は、
+[アジェンダ](https://docs.google.com/document/d/1y2YlcOVMPocQjSFi3X6gYGRjA0onyqr41ilXji10phw/edit#)
+に追加してください。
 
-The meetings are recorded and published in the [talks](talks/) section.
+ミーティングの録画及びスライドは [講演・発表資料](talks/) を参照ください。
 
 
 ## 他の資料
