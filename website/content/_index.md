@@ -29,11 +29,11 @@ MLIR とエコシステムについて話す **週次の公開ミーティング
 
 ## 他の資料
 
-For more information on MLIR, please see:
+MLIR についての他の資料は以下の通りです。
 
-*   The MLIR section of the [LLVM forums](https://llvm.discourse.group/c/mlir/31) for any questions.
-*   Real-time discussion on the MLIR channel of the [LLVM discord](https://discord.gg/xS7Z362) server.
-*   Previous [talks](talks/).
+*   [LLVM forums](https://llvm.discourse.group/c/mlir/31) の MLIR セクションではあらゆる質問ができます。
+*   [LLVM discord](https://discord.gg/xS7Z362) サーバーではリアルタイムで議論ができます。
+*   以前の [講演・発表資料](talks/)
 
 ## What is MLIR for?
 
