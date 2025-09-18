@@ -1,5 +1,5 @@
 ---
-title: "Talks"
+title: "講演・発表資料"
 date: 2019-11-29T15:26:15Z
 draft: false
 weight: 1

@@ -42,7 +42,7 @@ EOF
 
   cat > "${output_path}/_index.md" <<EOF
 ---
- title: "Code Documentation"
+ title: "コードドキュメント"
  date: 2019-11-29T15:26:15Z
  draft: false
 ---

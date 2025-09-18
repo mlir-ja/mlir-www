@@ -1,4 +1,5 @@
 ---
+title: "ホーム"
 date: 2017-10-19T15:26:15Z
 lastmod: 2019-10-26T15:26:15Z
 publishdate: 2018-11-23T15:26:15Z
@@ -7,12 +8,12 @@ publishdate: 2018-11-23T15:26:15Z
 # MLIR(Multi-Level Intermediate Representation) 概要
 
 MLIR プロジェクトは、再利用性と拡張性の高いコンパイラ基盤を構築する新たな取り組みです。
-MLIRの狙いは、ソフトウェアの断片化への対処、ヘテロジニアスなハードウェア向けコンパイル方法の改善、
+MLIRの狙いは、ソフトウェアの断片化への対処、ヘテロジニアスなハードウェア向けコンパイル手法の改善、
 ドメイン固有コンパイラの構築コストの大幅な低減、そして既存のコンパイラ同士の接続を支援することです。
 
 # 週次公開ミーティング
 
-MLIR とエコシステムについて話す **週次の公開ミーティング** を開催しています。
+MLIR 及びそのエコシステムについて話す **週次の公開ミーティング** を開催しています。
 次回のミーティング通知を受け取るには、Discourse の
 [MLIR Announcements](https://discourse.llvm.org/c/mlir/mlir-announcements/44)
 カテゴリを登録してください。
@@ -86,6 +87,6 @@ MLIR では use-def チェーンを減らすために SSA スコープを制限�
 
 ## MLIR を引用するには
 
-MLIR を出版物で引用する方法は、
+MLIR を出版物で引用する方法については、
 [FAQ](https://mlir.lemon.ski/getting_started/Faq/#how-to-refer-to-mlir-in-publications-is-there-an-accompanying-paper)
 をご覧ください。

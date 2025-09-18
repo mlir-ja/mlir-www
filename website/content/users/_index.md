@@ -1,5 +1,5 @@
 ---
-title: "Users of MLIR"
+title: "MLIR の利用事例"
 date: 2023-05-04T21:00:54Z
 draft: false
 weight: 1

@@ -1,5 +1,5 @@
 ---
-title: "Reporting Issues"
+title: "問題の報告"
 date: 2022-04-27T10:30:15Z
 draft: false
 weight: 10

@@ -18,7 +18,7 @@ disablePathToLower = true
 [Params]
 
     # Souce Code repository section
-    description = "Multi-Level IR Compiler Framework"
+    description = "Multi-Level IR コンパイラフレームワーク"
     # Update menubar link too.
     # TODO(jpienaar): Find a way that doesn't duplicate it or
     # require redirect.
@@ -59,50 +59,50 @@ disablePathToLower = true
 
 # Global menu section
 [[menu.main]]
-    name = "Community"
+    name = "コミュニティ"
     weight = 3
 
 [[menu.main]]
-    name = "Forums"
-    parent = "Community"
+    name = "フォーラム"
+    parent = "コミュニティ"
     url = "https://llvm.discourse.group/c/mlir/31"
     weight = 2
 
 [[menu.main]]
-    name = "Chat"
-    parent = "Community"
+    name = "チャット"
+    parent = "コミュニティ"
     url = "https://discord.gg/xS7Z362"
     weight = 3
 
 [[menu.main]]
-    name = "Source"
+    name = "ソース"
     weight = 10
     url = "https://github.com/llvm/llvm-project/tree/main/mlir"
 
 [[menu.main]]
     name = "GitHub"
-    parent = "Source"
+    parent = "ソース"
     weight = 2
     url = "https://github.com/llvm/llvm-project/tree/main/mlir"
 
 [[menu.main]]
     name = "Doxygen"
-    parent = "Source"
+    parent = "ソース"
     weight = 1
     url = "/doxygen/"
 
 [[menu.main]]
-    name = "Bugs"
+    name = "バグ"
     weight = 20
     url = "https://github.com/llvm/llvm-project/issues?q=is%3Aissue%20state%3Aopen%20label%3Amlir"
 
 [[menu.main]]
-    name = "Logo Assets"
+    name = "ロゴ素材"
     weight = 40
     url = "https://github.com/llvm/mlir-www/tree/main/website/static/LogoAssets"
 
 [[menu.main]]
-    name = "Youtube Channel"
+    name = "Youtube チャンネル"
     weight = 60
     url = "https://www.youtube.com/MLIRCompiler"
 

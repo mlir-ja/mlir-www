@@ -1,5 +1,5 @@
 ---
-title: "MLIR Related Publications"
+title: "MLIR 関連の出版物"
 date: 2021-10-23T15:26:15Z
 draft: false
 weight: 1

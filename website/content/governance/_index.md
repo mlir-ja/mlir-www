@@ -1,5 +1,5 @@
 ---
-title: "Governance"
+title: "ガバナンス"
 date: 2025-04-08T16:28:24Z
 draft: false
 weight: 1

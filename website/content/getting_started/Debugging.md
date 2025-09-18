@@ -1,5 +1,5 @@
 ---
-title: "Debugging Tips"
+title: "デバッグ手法"
 date: "2020-03-30"
 menu: "main"
 weight: 10

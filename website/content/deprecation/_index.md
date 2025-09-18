@@ -1,5 +1,5 @@
 ---
-title: "Deprecations & Current Refactoring"
+title: "非推奨・リファクタ中の機能"
 date: 2023-02-16T15:26:15Z
 draft: false
 weight: 2
