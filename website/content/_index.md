@@ -4,91 +4,88 @@ lastmod: 2019-10-26T15:26:15Z
 publishdate: 2018-11-23T15:26:15Z
 ---
 
-# Multi-Level Intermediate Representation Overview
+# MLIR(Multi-Level Intermediate Representation) 概要
 
-The MLIR project is a novel approach to building reusable and extensible
-compiler infrastructure. MLIR aims to address software fragmentation, improve
-compilation for heterogeneous hardware, significantly reduce the cost of
-building domain specific compilers, and aid in connecting existing compilers
-together.
+MLIR プロジェクトは、再利用性と拡張性の高いコンパイラ基盤を構築する新たな取り組みです。
+MLIRの狙いは、ソフトウェアの断片化への対処、ヘテロジニアスなハードウェア向けコンパイル方法の改善、
+ドメイン固有コンパイラの構築コストの大幅な低減、そして既存のコンパイラ同士の接続を支援することです。
 
-# Weekly Public Meeting
+# 週次公開ミーティング
 
-We host a **weekly public meeting** about MLIR and the ecosystem.
-To be notified of the next meeting, please subscribe to the
+MLIR とエコシステムについて話す **週次の公開ミーティング** を開催しています。
+次回のミーティング通知を受け取るには、Discourse の
 [MLIR Announcements](https://discourse.llvm.org/c/mlir/mlir-announcements/44)
-category on Discourse.
+カテゴリを登録してください。
 
-You can register to [this public calendar](https://calendar.google.com/calendar/u/0?cid=N2EzMDU3NTBjMjkzYWU5MTY5NGNlMmQ3YjJlN2JjNWEyYjViNjg1NTRmODcxOWZiOTU1MmIzNGQxYjkwNGJkZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
-to keep up-to-date with the schedule.
+[この公開カレンダー](https://calendar.google.com/calendar/u/0?cid=N2EzMDU3NTBjMjkzYWU5MTY5NGNlMmQ3YjJlN2JjNWEyYjViNjg1NTRmODcxOWZiOTU1MmIzNGQxYjkwNGJkZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
+を登録することで最新のスケジュールを確認できます。
 
-If you’d like to discuss a particular topic or have questions, please add it to the
-[agenda doc](https://docs.google.com/document/d/1y2YlcOVMPocQjSFi3X6gYGRjA0onyqr41ilXji10phw/edit#).
+あるトピックについて議論したい、あるいは質問がある場合は、
+[アジェンダ](https://docs.google.com/document/d/1y2YlcOVMPocQjSFi3X6gYGRjA0onyqr41ilXji10phw/edit#)
+に追加してください。
 
-The meetings are recorded and published in the [talks](talks/) section.
+ミーティングの録画及びスライドは [講演・発表資料](talks/) を参照ください。
 
 
-## More resources
+## 他の資料
 
-For more information on MLIR, please see:
+MLIR についての他の資料は以下の通りです。
 
-*   The MLIR section of the [LLVM forums](https://llvm.discourse.group/c/mlir/31) for any questions.
-*   Real-time discussion on the MLIR channel of the [LLVM discord](https://discord.gg/xS7Z362) server.
-*   Previous [talks](talks/).
+*   [LLVM forums](https://llvm.discourse.group/c/mlir/31) の MLIR セクションではあらゆる質問ができます。
+*   [LLVM discord](https://discord.gg/xS7Z362) サーバーではリアルタイムで議論ができます。
+*   以前の [講演・発表資料](talks/)
 
-## What is MLIR for?
+## MLIR の目的
 
-MLIR is intended to be a hybrid IR which can support multiple different
-requirements in a unified infrastructure. For example, this includes:
+MLIR は、複数の異なる用件を一つの基盤で満たせるような、
+ハイブリッドな IR となることを意図して作られています。例えば、
 
-*   The ability to represent dataflow graphs (such as in TensorFlow), including
-    dynamic shapes, the user-extensible op ecosystem, TensorFlow variables, etc.
-*   Optimizations and transformations typically done on such graphs (e.g. in
-    Grappler).
-*   Ability to host high-performance-computing-style loop optimizations across
-    kernels (fusion, loop interchange, tiling, etc.), and to transform memory
-    layouts of data.
-*   Code generation "lowering" transformations such as DMA insertion, explicit
-    cache management, memory tiling, and vectorization for 1D and 2D register
-    architectures.
-*   Ability to represent target-specific operations, e.g. accelerator-specific
-    high-level operations.
-*   Quantization and other graph transformations done on a Deep-Learning graph.
-*   [Polyhedral primitives](/docs/Dialects/Affine/).
-*   [Hardware Synthesis Tools / HLS](https://circt.llvm.org).
+*   TensorFlow にも見られるようなデータフローグラフを表現できる能力。動的 shape、
+    ユーザー拡張可能な Op エコシステム、TensorFlow の変数を含む。
+*   そのようなグラフ上で通常行われている最適化や変形 (例えば Grappler
+    に見られるようなもの) 。
+*   HPC スタイルのカーネルを跨いだループ最適化 (融合、交換、タイリング等)
+    をホストし、データのメモリレイアウトを変形できる能力。
+*   コード生成のための "lowering" 。例えば DMA 挿入、明示的なキャッシュ管理、
+    メモリタイリング、1次元、2次元レジスタアーキテクチャ向けのベクトル化など。
+*   例えばアクセラレータ固有の抽象度が高い演算など、
+    ターゲット固有の操作を表現できる能力。
+*   量子化やその他ディープラーニングで用いられているグラフ変形。
+*   [多面体最適化](/docs/Dialects/Affine/).
+*   [ハードウェア合成ツール / 高位合成](https://circt.llvm.org).
 
-MLIR is a common IR that also supports hardware specific operations. Thus,
-any investment into the infrastructure surrounding MLIR (e.g. the compiler
-passes that work on it) should yield good returns; many targets can use that
-infrastructure and will benefit from it.
+MLIR は共通の IR であり、ハードウェア固有の操作もサポートしています。
+そのため、MLIR を取り巻くインフラ (例えばその上で動くコンパイラパス)
+への投資は大きなリターンをもたらします。
+多くのターゲットがそのインフラを利用でき、恩恵を受けられます。
 
-MLIR is a powerful representation, but it also has non-goals. We do not try to
-support low level machine code generation algorithms (like register allocation
-and instruction scheduling). They are a better fit for lower level optimizers
-(such as LLVM). Also, we do not intend MLIR to be a source language that
-end-users would themselves write kernels in (analogous to CUDA C++). On the
-other hand, MLIR provides the backbone for representing any such DSL and
-integrating it in the ecosystem.
+MLIR は強力な表現ですが、目的としていないものもあります。
+低レベルのマシンコード生成アルゴリズムをサポートしようとはしていません
+(レジスタ割り当てや命令スケジューリング等) 。その用途には LLVM
+などの低レベル最適化ツールの方が向いています。そして、MLIR をエンドユーザーが
+CUDA C++ のようなカーネルを書くためのソース言語とすることも意図していません。
+一方、MLIR はそのような DSL などを表現し、
+エコシステムと統合するためのバックボーンを提供しています。
 
-## Compiler infrastructure
+## コンパイラ基盤
 
-We benefited from experience gained from building other IRs (LLVM IR, XLA HLO,
-and Swift SIL) when building MLIR. The MLIR framework encourages existing
-best practices, e.g. writing and maintaining an IR spec, building an IR verifier,
-providing the ability to dump and parse MLIR files to text, writing extensive
-unit tests with the [FileCheck](https://llvm.org/docs/CommandGuide/FileCheck.html)
-tool, and building the infrastructure as a set of modular libraries that can be
-combined in new ways.
+MLIR の構築にあたっては、LLVM IR、XLA HLO、Swift SIL などの他の IR
+構築の経験が役に立ちました。MLIR は、既存のベストプラクティスを歓迎しています。
+例えば、IR の仕様記述やメンテナンス、IR 検証ツールの構築、
+MLIR ファイルをテキストにダンプやパースができる能力の提供、
+[FileCheck](https://llvm.org/docs/CommandGuide/FileCheck.html)
+による拡張性の高いユニットテストの記述、
+そしてモジュール式のライブラリを新方式で組み合わせ基盤をビルドすることです。
 
-Other lessons have been incorporated and integrated into the design in subtle
-ways. For example, LLVM has non-obvious design mistakes that prevent a
-multithreaded compiler from working on multiple functions in an LLVM module at
-the same time. MLIR solves these problems by having limited SSA scope to reduce
-the use-def chains and by replacing cross-function references with explicit
-[`symbol reference`](docs/LangRef/#symbol-reference-attribute).
+その他の教訓も、設計に巧妙に盛り込まれ、統合されています。
+例えば LLVM には、マルチスレッドのコンパイラが LLVM 
+モジュール中の複数の関数を同時に処理できなくするような非自明な設計ミスがあります。
+MLIR では use-def チェーンを減らすために SSA スコープを制限し、
+複数の関数にわたる参照を明示的な [`symbol reference`](docs/LangRef/#symbol-reference-attribute)
+に置き換えることで解決しています。
 
-## Citing MLIR
+## MLIR を引用するには
 
-Please see the [FAQ
-entry](https://mlir.lemon.ski/getting_started/Faq/#how-to-refer-to-mlir-in-publications-is-there-an-accompanying-paper)
-on how to cite MLIR in publications.
+MLIR を出版物で引用する方法は、
+[FAQ](https://mlir.lemon.ski/getting_started/Faq/#how-to-refer-to-mlir-in-publications-is-there-an-accompanying-paper)
+をご覧ください。
