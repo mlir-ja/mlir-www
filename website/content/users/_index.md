@@ -5,7 +5,7 @@ draft: false
 weight: 1
 ---
 
-In alphabetical order below.
+以下アルファベット順で紹介します。
 
 ## [Accera](https://github.com/microsoft/Accera)
 
@@ -28,7 +28,7 @@ Beaver is an MLIR frontend in Elixir and Zig.
 Powered by Elixir's composable modularity and meta-programming features,
 Beaver provides a simple, intuitive, and extensible interface for MLIR.
 
-## [Bᴛᴏʀ2ᴍʟɪʀ](https://github.com/jetafese/btor2mlir): A Format and Toolchain for Hardware Verification
+## [Bᴛᴏʀ2ᴍʟɪʀ](https://github.com/jetafese/btor2mlir): ハードウェア検証のためのフォーマットとツールチェーン
 
 Bᴛᴏʀ2ᴍʟɪʀ applies MLIR to the domain of hardware verification by offering a clean way to take advantage of a format's
 strengths. For example, we support the use of software verification methods for hardware
@@ -49,12 +49,12 @@ Catalyst also comes with the [Lightning](https://github.com/PennyLaneAI/pennylan
 high performance simulator by default, but supports an extensible backend system that is
 constantly evolving, aiming to deliver execution on heterogenous architectures with GPUs and QPUs.
 
-## [CIRCT](https://github.com/llvm/circt): Circuit IR Compilers and Tools
+## [CIRCT](https://github.com/llvm/circt): 回路 IR コンパイラとツール
 
 The CIRCT project is an (experimental!) effort looking to apply MLIR and the LLVM
 development methodology to the domain of hardware design tools.
 
-## [Concrete](https://github.com/zama-ai/concrete): TFHE Compiler that converts python programs into FHE equivalent
+## [Concrete](https://github.com/zama-ai/concrete): Python プログラムを FHE 相当に変換する TFHE コンパイラ
 
 Concrete is an open-source framework that simplifies the use of
 [Fully Homomorphic Encryption](https://fhe.org) (FHE) and makes writing FHE
@@ -70,7 +70,7 @@ applications for various use cases. For instance,
 Concrete to integrate privacy-preserving features of FHE into machine learning
 use cases.
 
-## [DSP-MLIR](https://github.com/MPSLab-ASU/DSP_MLIR): A Framework for Digital Signal Processing Applications in MLIR
+## [DSP-MLIR](https://github.com/MPSLab-ASU/DSP_MLIR): MLIR によるデジタル信号処理アプリケーション用フレームワーク
 
 DSP-MLIR is a framework designed specifically for DSP applications. It provides
 a DSL (Frontend), compiler, and rewrite patterns that detect DSP patterns and
@@ -79,7 +79,7 @@ of DSP operations, including filters (FIR, IIR, filter response), transforms
 (DCT, FFT, IFFT), and other signal processing operations such as delay and gain,
 along with additional functionalities for application development. 
 
-## [Enzyme](https://enzyme.mit.edu): General Automatic Differentiation of MLIR
+## [Enzyme](https://enzyme.mit.edu): MLIR 用の自動微分ツール
 Enzyme (specifically EnzymeMLIR) is a first-class automatic differentiation 
 sytem for MLIR. Operations and types implement or inheret general interfaces
 to specify their differentiable behavior, which allows Enzyme to provide
@@ -88,7 +88,7 @@ See also the [Enzyme-JaX](https://github.com/EnzymeAD/Enzyme-JAX) project which
 uses Enzyme to differentiate StableHLO, and thus provide MLIR-native
 differentiation and codegen for JaX.
 
-## [Firefly](https://github.com/GetFirefly/firefly): A new compiler and runtime for BEAM languages
+## [Firefly](https://github.com/GetFirefly/firefly): BEAM 言語用の新しいコンパイラとランタイム
 
 Firefly is not only a compiler, but a runtime as well. It consists of two parts:
 
@@ -159,7 +159,7 @@ ongoing to convert MLIR to portable Kokkos-based source code, add a partition di
 to MLIR to support tiled and distributed sparse tensors and target spatial dataflow 
 accelerators.
 
-## [Lingo DB](https://www.lingo-db.com): Revolutionizing Data Processing with Compiler Technology
+## [Lingo DB](https://www.lingo-db.com): コンパイラ技術によるデータ処理の革新
 
 LingoDB is a cutting-edge data processing system that leverages compiler technology
 to achieve unprecedented flexibility and extensibility without sacrificing
@@ -172,7 +172,7 @@ for heterogeneous hardware.
 LingoDB heavily builds on the MLIR compiler framework for compiling queries
 to efficient machine code without much latency.
 
-## [MARCO](https://github.com/marco-compiler/marco): Modelica Advanced Research COmpiler
+## [MARCO](https://github.com/marco-compiler/marco): Modelica 発展研究用コンパイラ
 MARCO is a prototype compiler for the Modelica language, with focus on the
 efficient compilation and simulation of large-scale models.
 The Modelica source code is processed by external tools to obtain a
@@ -183,7 +183,7 @@ The project is complemented by multiple runtime libraries, written in C++, that
 are used to drive the generated simulation, provide support functions, and to
 ease interfacing with external differential equations solvers.
 
-## [MLIR-AIE](https://github.com/Xilinx/mlir-aie): Toolchain for AMD/Xilinx AIEngine devices
+## [MLIR-AIE](https://github.com/Xilinx/mlir-aie): AMD/Xilinx AIEngine デバイス用ツールチェーン
 
 MLIR-AIE is a toolchain providing low-level device configuration for Versal
 AIEngine-based devices. Support is provided to target the AIEngine portion of
@@ -191,7 +191,7 @@ the device, including processors, stream switches, TileDMA and ShimDMA blocks.
 Backend code generation is included, targetting the LibXAIE library, along with
 some higher-level abstractions enabling higher-level design.
 
-## [MLIR-DaCe](https://github.com/spcl/mlir-dace): Data-Centric MLIR Dialect
+## [MLIR-DaCe](https://github.com/spcl/mlir-dace): データ中心 MLIR 方言
 
 MLIR-DaCe is a project aiming to bridge the gap between control-centric and
 data-centric intermediate representations. By bridging these two groups of IRs,
@@ -221,7 +221,7 @@ It aims to be a strict superset of Python (i.e. be compatible with existing
 programs) and to embrace the CPython immediately for long-tail ecosystem
 enablement.
 
-## [Nod Distributed Runtime](https://nod.ai/project/distributedruntime/): Asynchronous fine-grained op-level parallel runtime
+## [Nod Distributed Runtime](https://nod.ai/project/distributedruntime/): 非同期細粒度 Op レベル並列ランタイム
 
 Nod's MLIR based Parallel Compiler and Distributed Runtime  provide a way to
 easily scale out training and inference of very large models across multiple
@@ -250,14 +250,14 @@ PlaidML is a tensor compiler that facilitates reusable and performance portable
 ML models across various hardware targets including CPUs, GPUs, and
 accelerators.
 
-## [PolyBlocks](https://www.polymagelabs.com/technology/#polyblocks): An MLIR-based JIT and AOT compiler
+## [PolyBlocks](https://www.polymagelabs.com/technology/#polyblocks): MLIR ベース JIT / AOT コンパイラ
 
 PolyBlocks is a high-performance MLIR-based end-to-end compiler for DL and
 non-DL computations. It can perform both JIT and AOT compilation. Its compiler
 engine is aimed at being fully automatic, modular, analytical model-driven, and
 fully code generating (no reliance on vendor/HPC libraries).
 
-## [Polygeist](https://github.com/llvm/Polygeist): C/C++ frontend and optimizations for MLIR
+## [Polygeist](https://github.com/llvm/Polygeist): MLIR 用 C/C++ フロントエンド・最適化ツール
 
 Polygeist is a C/C++ frontend for MLIR which preserves high-level structure
 from programs such as parallelism. Polygeist also includes high-level optimizations
@@ -324,7 +324,7 @@ Deep-Learning primitives. The aim of Triton is to provide an open-source
 environment to write fast code at higher productivity than CUDA, but also
 with higher flexibility than other existing DSLs.
 
-## [VAST](https://github.com/trailofbits/vast): C/C++ frontend for MLIR
+## [VAST](https://github.com/trailofbits/vast): MLIR 用 C/C++ フロントエンド
 
 VAST is a library for program analysis and instrumentation of C/C++ and related languages.
 VAST provides a foundation for customizable program representation for a broad spectrum
