@@ -35,39 +35,37 @@ MLIR についての他の資料は以下の通りです。
 *   [LLVM discord](https://discord.gg/xS7Z362) サーバーではリアルタイムで議論ができます。
 *   以前の [講演・発表資料](talks/)
 
-## What is MLIR for?
+## MLIR の目的
 
-MLIR is intended to be a hybrid IR which can support multiple different
-requirements in a unified infrastructure. For example, this includes:
+MLIR は、複数の異なる用件を一つの基盤で満たせるような、
+ハイブリッドな IR となることを意図して作られています。例えば、
 
-*   The ability to represent dataflow graphs (such as in TensorFlow), including
-    dynamic shapes, the user-extensible op ecosystem, TensorFlow variables, etc.
-*   Optimizations and transformations typically done on such graphs (e.g. in
-    Grappler).
-*   Ability to host high-performance-computing-style loop optimizations across
-    kernels (fusion, loop interchange, tiling, etc.), and to transform memory
-    layouts of data.
-*   Code generation "lowering" transformations such as DMA insertion, explicit
-    cache management, memory tiling, and vectorization for 1D and 2D register
-    architectures.
-*   Ability to represent target-specific operations, e.g. accelerator-specific
-    high-level operations.
-*   Quantization and other graph transformations done on a Deep-Learning graph.
-*   [Polyhedral primitives](/docs/Dialects/Affine/).
-*   [Hardware Synthesis Tools / HLS](https://circt.llvm.org).
+*   TensorFlow にも見られるようなデータフローグラフを表現できる能力。動的 shape、
+    ユーザー拡張可能な Op エコシステム、TensorFlow の変数を含む。
+*   そのようなグラフ上で通常行われている最適化や変形 (例えば Grappler
+    に見られるようなもの) 。
+*   HPC スタイルのカーネルを跨いだループ最適化 (融合、交換、タイリング等)
+    をホストし、データのメモリレイアウトを変形できる能力。
+*   コード生成のための "lowering" 。例えば DMA 挿入、明示的なキャッシュ管理、
+    メモリタイリング、1次元、2次元レジスタアーキテクチャ向けのベクトル化など。
+*   例えばアクセラレータ固有の抽象度が高い演算など、
+    ターゲット固有の操作を表現できる能力。
+*   量子化やその他ディープラーニングで用いられているグラフ変形。
+*   [多面体最適化](/docs/Dialects/Affine/).
+*   [ハードウェア合成ツール / 高位合成](https://circt.llvm.org).
 
-MLIR is a common IR that also supports hardware specific operations. Thus,
-any investment into the infrastructure surrounding MLIR (e.g. the compiler
-passes that work on it) should yield good returns; many targets can use that
-infrastructure and will benefit from it.
+MLIR は共通の IR であり、ハードウェア固有の操作もサポートしています。
+そのため、MLIR を取り巻くインフラ (例えばその上で動くコンパイラパス)
+への投資は大きなリターンをもたらします。
+多くのターゲットがそのインフラを利用でき、恩恵を受けられます。
 
-MLIR is a powerful representation, but it also has non-goals. We do not try to
-support low level machine code generation algorithms (like register allocation
-and instruction scheduling). They are a better fit for lower level optimizers
-(such as LLVM). Also, we do not intend MLIR to be a source language that
-end-users would themselves write kernels in (analogous to CUDA C++). On the
-other hand, MLIR provides the backbone for representing any such DSL and
-integrating it in the ecosystem.
+MLIR は強力な表現ですが、目的としていないものもあります。
+低レベルのマシンコード生成アルゴリズムをサポートしようとはしていません
+(レジスタ割り当てや命令スケジューリング等) 。その用途には LLVM
+などの低レベル最適化ツールの方が向いています。そして、MLIR をエンドユーザーが
+CUDA C++ のようなカーネルを書くためのソース言語とすることも意図していません。
+一方、MLIR はそのような DSL などを表現し、
+エコシステムと統合するためのバックボーンを提供しています。
 
 ## Compiler infrastructure
 
