@@ -84,8 +84,8 @@ MLIR では use-def チェーンを減らすために SSA スコープを制限�
 複数の関数にわたる参照を明示的な [`symbol reference`](docs/LangRef/#symbol-reference-attribute)
 に置き換えることで解決しています。
 
-## Citing MLIR
+## MLIR を引用するには
 
-Please see the [FAQ
-entry](https://mlir.lemon.ski/getting_started/Faq/#how-to-refer-to-mlir-in-publications-is-there-an-accompanying-paper)
-on how to cite MLIR in publications.
+MLIR を出版物で引用する方法は、
+[FAQ](https://mlir.lemon.ski/getting_started/Faq/#how-to-refer-to-mlir-in-publications-is-there-an-accompanying-paper)
+をご覧ください。
