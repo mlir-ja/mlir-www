@@ -6,7 +6,7 @@ publishdate: 2018-11-23T15:26:15Z
 
 # MLIR(Multi-Level Intermediate Representation) 概要
 
-MLIR プロジェクトは、再利用性と拡張性の高いコンパイル基盤を構築する新たな取り組みです。
+MLIR プロジェクトは、再利用性と拡張性の高いコンパイラ基盤を構築する新たな取り組みです。
 MLIRの狙いは、ソフトウェアの断片化への対処、ヘテロジニアスなハードウェア向けコンパイル方法の改善、
 ドメイン固有コンパイラの構築コストの大幅な低減、そして既存のコンパイラ同士の接続を支援することです。
 
@@ -67,22 +67,22 @@ CUDA C++ のようなカーネルを書くためのソース言語とするこ�
 一方、MLIR はそのような DSL などを表現し、
 エコシステムと統合するためのバックボーンを提供しています。
 
-## Compiler infrastructure
+## コンパイラ基盤
 
-We benefited from experience gained from building other IRs (LLVM IR, XLA HLO,
-and Swift SIL) when building MLIR. The MLIR framework encourages existing
-best practices, e.g. writing and maintaining an IR spec, building an IR verifier,
-providing the ability to dump and parse MLIR files to text, writing extensive
-unit tests with the [FileCheck](https://llvm.org/docs/CommandGuide/FileCheck.html)
-tool, and building the infrastructure as a set of modular libraries that can be
-combined in new ways.
+MLIR の構築にあたっては、LLVM IR、XLA HLO、Swift SIL などの他の IR
+構築の経験が役に立ちました。MLIR は、既存のベストプラクティスを歓迎しています。
+例えば、IR の仕様記述やメンテナンス、IR 検証ツールの構築、
+MLIR ファイルをテキストにダンプやパースができる能力の提供、
+[FileCheck](https://llvm.org/docs/CommandGuide/FileCheck.html)
+による拡張性の高いユニットテストの記述、
+そしてモジュール式のライブラリを新方式で組み合わせ基盤をビルドすることです。
 
-Other lessons have been incorporated and integrated into the design in subtle
-ways. For example, LLVM has non-obvious design mistakes that prevent a
-multithreaded compiler from working on multiple functions in an LLVM module at
-the same time. MLIR solves these problems by having limited SSA scope to reduce
-the use-def chains and by replacing cross-function references with explicit
-[`symbol reference`](docs/LangRef/#symbol-reference-attribute).
+その他の教訓も、設計に巧妙に盛り込まれ、統合されています。
+例えば LLVM には、マルチスレッドのコンパイラが LLVM 
+モジュール中の複数の関数を同時に処理できなくするような非自明な設計ミスがあります。
+MLIR では use-def チェーンを減らすために SSA スコープを制限し、
+複数の関数にわたる参照を明示的な [`symbol reference`](docs/LangRef/#symbol-reference-attribute)
+に置き換えることで解決しています。
 
 ## Citing MLIR
 
