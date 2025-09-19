@@ -5,13 +5,14 @@ draft: false
 weight: 1
 ---
 
-MLIR is part of the LLVM project and is subject to its [governance rules](https://github.com/llvm/llvm-www/blob/main/proposals/LP0004-project-governance.md). As an important LLVM subproject, MLIR has a dedicated area team whose main role is to facilitate decision-making within the project, in particular by nominating maintainers.
+MLIR は LLVM プロジェクトの一部であり、その [ガバナンスルール](https://github.com/llvm/llvm-www/blob/main/proposals/LP0004-project-governance.md) に従います。
+重要な LLVM のサブプロジェクトであるため、MLIR には主にプロジェクト内の意思決定、特にメンテナーの指定を円滑に行うための専任のエリアチームが設けられています。
 
-As of 2025, the area team consists of:
+2025 年現在、エリアチームの構成メンバーは以下の通りです。
 
- - [Alex Zinenko](https://github.com/ftynse/) (chair)
- - [Renato Golin](https://github.com/rengolin/) (secretary)
+ - [Alex Zinenko](https://github.com/ftynse/) (議長)
+ - [Renato Golin](https://github.com/rengolin/) (秘書)
  - [Jacques Pienaar](https://github.com/jpienaar)
  - [Matthias Springer](https://github.com/matthias-springer/)
 
-Members of the area team are also members of the project community at large and the preferred method of contacting them are through the usual community channels.
+エリアチームのメンバーはプロジェクトコミュニティ全体のメンバーでもあり、そのため連絡手段としては通常のコミュニティチャンネルを用いるのが適切です。
