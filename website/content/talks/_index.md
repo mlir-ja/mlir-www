@@ -5,14 +5,14 @@ draft: false
 weight: 1
 ---
 
-## Tutorials
+## チュートリアル
 
 * MLIR Tutorial ; [slides](https://llvm.org/devmtg/2020-09/slides/MLIR_Tutorial.pdf) -
   [recording](https://www.youtube.com/watch?v=Y4SvqTtOIDk) ;
   Mehdi Amini and River Riddle @
   [2020 Virtual LLVM Developers](https://llvm.org/devmtg/2020-09/)
 
-### Past editions:
+### 過去のバージョン
 
 * MLIR Tutorial ; [slides](http://www.cs.utah.edu/~mhall/mlir4hpc/pienaar-MLIR-Tutorial.pdf) ;
   Jacques Pienaar, Sana Damani @
@@ -21,9 +21,9 @@ weight: 1
   Mehdi Amini, Alex Zinenko, Nicolas Vasilache @
   [EuroLLVM 2019](https://llvm.org/devmtg/2019-04)
 
-## Tech talks
+## 技術講演
 
-### About MLIR and MLIR Components
+### MLIR 本体と構成要素について
 
 * [How to Build your own MLIR Dialect](https://fosdem.org/2023/schedule/event/mlirdialect/) ; Marius Brehler @ [FOSDEM 2023](https://fosdem.org/2023/)
 
@@ -47,7 +47,7 @@ weight: 1
 @ [Compilers for Machine Learning (C4ML)](https://www.c4ml.org/c4ml2019) workshop at
 [CGO 2019](http://cgo.org/cgo2019/)
 
-### Using MLIR
+### MLIR を利用した事例について
 
 * MLIR: Accelerating TF with compilers ; [recording](https://www.youtube.com/watch?v=Hx3A0A2lM84&list=PLQY2H8rRoyvzuJw20FG82Lgm2SZjTdIXU&index=12) ; Jacques Pienaar (filling in for Tatiana Shpeisman) @ [TF Dev Summit 2020](https://www.tensorflow.org/dev-summit)
 
@@ -70,18 +70,20 @@ weight: 1
 * Compiling Ruby with MLIR ; [recording](https://youtu.be/Cl5SgDxvZ8w) ; Alex Denisov @ [LLVM Social Berlin #20](https://www.meetup.com/llvm-social-berlin/events/287586655/)
 
 
-## Open design meeting presentations
+## 公開設計ミーティングのプレゼン
 
-We host a **weekly public meeting** about MLIR and the ecosystem. If you’d like
-to discuss a particular topic or have questions, please add it to the
-[agenda doc](https://docs.google.com/document/d/1y2YlcOVMPocQjSFi3X6gYGRjA0onyqr41ilXji10phw/edit#).
+MLIR 及びそのエコシステムについて話す **週次の公開ミーティング** を開催しています。
+あるトピックについて議論したい、あるいは質問がある場合は、
+[アジェンダ](https://docs.google.com/document/d/1y2YlcOVMPocQjSFi3X6gYGRjA0onyqr41ilXji10phw/edit#)
+に追加してください。
 
-The meetings are announced on [Discourse](https://discourse.llvm.org/c/mlir/mlir-announcements/44),
-subscribing to this category is the best way to stay informed. You can also register
-to [this public calendar](https://calendar.google.com/calendar/u/0?cid=N2EzMDU3NTBjMjkzYWU5MTY5NGNlMmQ3YjJlN2JjNWEyYjViNjg1NTRmODcxOWZiOTU1MmIzNGQxYjkwNGJkZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
+ミーティングは [Discourse](https://discourse.llvm.org/c/mlir/mlir-announcements/44) で告知されます。
+このカテゴリを登録することで通知を得ることができます。
+[この公開カレンダー](https://calendar.google.com/calendar/u/0?cid=N2EzMDU3NTBjMjkzYWU5MTY5NGNlMmQ3YjJlN2JjNWEyYjViNjg1NTRmODcxOWZiOTU1MmIzNGQxYjkwNGJkZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
+を登録することでも最新のスケジュールを確認できます。
 
 
-### About MLIR and MLIR Components
+### MLIR 本体と構成要素について
 
 * 2025-08-14: Discussion on the next steps on Properties
 [slides 1](/OpenMeetings/2025-08-14-Properties1.pdf) and
@@ -285,7 +287,7 @@ recording [part 1](https://drive.google.com/a/google.com/file/d/1JvirzO_LgUTacs0
 [slides](https://drive.google.com/open?id=10m6bzwpC70bqLoxu3lAQjDXPK2RVXiBl) -
 [recording](https://drive.google.com/open?id=17RKrAIMDS99cbfF9WVBPrDyo7xZxvh_T)
 
-### Using MLIR
+### MLIR を利用した事例について
 
 * 2025-04-10: Inet: Interaction Network Dialect ;
 [slides](/OpenMeetings/2025-04-10-Inet-Dialect.pdf) -
@@ -405,12 +407,12 @@ Architectures ;
 [slides](https://drive.google.com/a/google.com/file/d/1Xaa3tuxqiRBVHioIB74BiFwyWZSq0c9m/view?usp=sharing) -
 [recording](https://drive.google.com/a/google.com/file/d/1sk6iTcBfoXcmgJrGwPlpcI1nZdrG2qkX/view?usp=sharing)
 
-## Upcoming talks or presentations
+## 講演・プレゼンの予定
 
-The schedule for the open design meetings and upcoming presentations can be found in the [agenda doc](https://docs.google.com/document/d/1y_9f1AbfgcoVdJh4_aM6-BaSHvrHl8zuA5G4jv_94K8/edit#).
+公開設計ミーティング及びプレゼンの予定については [agenda doc](https://docs.google.com/document/d/1y_9f1AbfgcoVdJh4_aM6-BaSHvrHl8zuA5G4jv_94K8/edit#) を参照してください。
 
 
-## Past conferences and workshops
+## 過去のカンファレンス・ワークショップ
 
-* 2020/02/22: [C4ML 2020: Compilers for Machine Learning](https://www.c4ml.org/) workshop co-located with CGO in San Diego (Multiple MLIR talks!)
+* 2020/02/22: [C4ML 2020: Compilers for Machine Learning](https://www.c4ml.org/) サンディエゴでワークショップが CGO と共催されました (MLIR の講演が複数ありました！)
 * 2020/01/20: [AccML 2020: HiPEAC Workshop on Accelerated Machine Learning](https://www.sigarch.org/call-contributions/accml-2020-hipeac-workshop-on-accelerated-machine-learning/).
