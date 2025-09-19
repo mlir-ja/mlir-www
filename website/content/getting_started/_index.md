@@ -5,34 +5,33 @@ draft: false
 weight: 10
 ---
 
-Don't miss the MLIR Tutorial!
-[slides](https://llvm.org/devmtg/2020-09/slides/MLIR_Tutorial.pdf) -
-[recording](https://www.youtube.com/watch?v=Y4SvqTtOIDk) -
-[online step-by-step](https://mlir.lemon.ski/docs/Tutorials/Toy/)
+MLIR のチュートリアルをお忘れなく！
+[スライド](https://llvm.org/devmtg/2020-09/slides/MLIR_Tutorial.pdf) -
+[動画](https://www.youtube.com/watch?v=Y4SvqTtOIDk) -
+[オンラインチュートリアル](https://mlir.lemon.ski/docs/Tutorials/Toy/)
 
 
-Please refer to the [LLVM Getting Started](https://llvm.org/docs/GettingStarted.html)
-in general to build LLVM. Below are quick instructions to build MLIR with LLVM.
+LLVM をビルドするには [LLVM Getting Started](https://llvm.org/docs/GettingStarted.html)
+が参考になります。以下は LLVM で MLIR をビルドする方法の簡単な説明です。
 
-The following instructions for compiling and testing MLIR assume that you have
-`git`, [`ninja`](https://ninja-build.org/), and a working C++ toolchain (see
-[LLVM requirements](https://llvm.org/docs/GettingStarted.html#requirements)).
+以下の MLIR をコンパイル・テストする方法の説明では、
+`git`、[`ninja`](https://ninja-build.org/)、そして動作する
+C++ ツールチェーンが環境にインストールされていることを前提にしています
+([LLVM requirements](https://llvm.org/docs/GettingStarted.html#requirements) を参照)。
 
-As a starter, you may try [the tutorial](docs/Tutorials/Toy/Ch-1.md) on
-building a compiler for a Toy language.
-
----
-
-**TIP**
-
-See the
-[Testing Guide - CLI Incantations](TestingGuide/#command-line-incantations)
-section for additional ways to invoke and filter tests that can help you be more
-efficient for regular development.
+手始めに、Toy 言語のコンパイラビルドを [チュートリアル](docs/Tutorials/Toy/Ch-1.md) で試せます。
 
 ---
 
-### Unix-like compile/testing:
+**ヒント**
+
+通常の開発で役に立つテストの起動・フィルタ方法についての説明は
+[テストガイド](TestingGuide/#command-line-incantations)
+を参照してください。
+
+---
+
+### Unix ライクな環境でのコンパイル・テスト
 
 ```sh
 git clone https://github.com/llvm/llvm-project.git
@@ -44,30 +43,30 @@ cmake -G Ninja ../llvm \
    -DLLVM_TARGETS_TO_BUILD="Native;NVPTX;AMDGPU" \
    -DCMAKE_BUILD_TYPE=Release \
    -DLLVM_ENABLE_ASSERTIONS=ON
-# Using clang and lld speeds up the build, we recommend adding:
+# clang と lld を用いることでビルドを高速にするには、以下を追加してください
 #  -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DLLVM_ENABLE_LLD=ON
-# CCache can drastically speed up further rebuilds, try adding:
+# CCache でリビルドをさらに劇的に速くするには、以下を追加してください
 #  -DLLVM_CCACHE_BUILD=ON
-# Optionally, using ASAN/UBSAN can find bugs early in development, enable with:
+# オプションとして、以下で ASAN/UBSAN が有効になり開発中のバグを早期に発見できます
 # -DLLVM_USE_SANITIZER="Address;Undefined"
-# Optionally, enabling integration tests as well
+# オプションとして、以下でインテグレーションテストを有効にできます
 # -DMLIR_INCLUDE_INTEGRATION_TESTS=ON
 cmake --build . --target check-mlir
 ```
 
-It is recommended that you install `clang` and `lld` on your machine (`sudo apt-get
-install clang lld` on Ubuntu for example) and uncomment the last part of the
-cmake invocation above.
+マシンへの `clang` 及び `lld` のインストールを行い (例えば Ubuntu
+では `sudo apt-get install clang lld`) 、そして最後の cmake
+コマンドにあるコメント部分を外すことが推奨されています。
 
-If you need debug info, you can use `-DCMAKE_BUILD_TYPE=Debug` or
-`-DCMAKE_BUILD_TYPE=RelWithDebInfo`. It is recommended to use
-`-DLLVM_USE_SPLIT_DWARF=ON` to save ~ 30%-40% disk space with debug
-builds.
+デバッグ情報が欲しい場合、`-DCMAKE_BUILD_TYPE=Debug` もしくは
+`-DCMAKE_BUILD_TYPE=RelWithDebInfo` を利用できます。
+`-DLLVM_USE_SPLIT_DWARF=ON` を併用することが推奨されており、これによりデバッグビルド時に
+30%～40% 程度のディスク容量が削減できます。
 
 ---
 
-### Windows compile/testing:
-To compile and test on Windows using Visual Studio 2017:
+### Windows でのコンパイル・テスト
+Windows で Visual Studio 2017 を用いてコンパイル及びテストをする場合、以下のようにしてください。
 
 ```bat
 REM In shell with Visual Studio environment set up, e.g., with command such as
