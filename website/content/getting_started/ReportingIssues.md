@@ -5,35 +5,31 @@ draft: false
 weight: 10
 ---
 
-Issues with MLIR can be reported through GitHub.  Report the issue for the
-llvm-project repository at https://github.com/llvm/llvm-project/issues/new. If
-possible, attach the "mlir" label (label management may be limited to accounts
-that have a contribution history). Several other labels prefixed with "mlir:"
-are available if the issue can be classified further, for example, "mlir:core"
-can be used for issues with MLIR core libraries (`mlir/lib/IR`,
-`mlir/lib/Interfaces`, etc.) and "mlir:affine" can be used for issues with MLIR
-Affine dialect.  Finer-grain labels are optional.
+MLIR で問題が起きた場合は GitHub で報告できます。 https://github.com/llvm/llvm-project/issues/new
+から llvm-project リポジトリで issue を立てることができます。
+可能な限り、"mlir" ラベルを付けてください
+(ラベル管理権限はコントリビューション歴があるアカウントのみに限定されている場合があります) 。
+issue が更に分類可能な場合、 "mlir:" から始まるラベルを用いることができます。
+例えば、"mlir:core" であれば MLIR のコアライブラリ (`mlir/lib/IR` や `mlir/lib/Interfaces` など)
+そして "mlir:affine" であれば MLIR の Affine 方言の issue で使えます。
+このような細かいラベルは付けても付けなくても大丈夫です。
 
-Always provide the version of MLIR (LLVM) used. When building MLIR from source,
-provide the git hash or the result of `git describe` command run in the
-`llvm-project` repository.  The version reported by `mlir-opt --version` is
-_insufficient_ for tools built from source.  It is sufficient from binary
-"release" builds though, i.e., when not suffixed with "git".
+必ず使用している MLIR (LLVM) のバージョンを含めてください。ソースから MLIR をビルドしている場合、
+git ハッシュもしくは llvm-project リポジトリ内で実行した `git describe` コマンドの結果を含めてください。
+ソースからビルドした場合、`mlir-opt --version` で得られる情報では **不十分** です。
+リリースされたバイナリだった場合、つまり "git" から始まるバージョンでなければそれで十分です。
 
-Provide _complete_ and _minimal_ instructions to reproduce the issue.  Other
-developers should be able to reproduce the issue using _only_ the code available
-in MLIR repository and following the instructions provided.  Ideally, the issue
-can be observed by running MLIR command-line tools (`mlir-opt`,
-`mlir-translate`, etc.) on some IR.  In this case, the IR and the exact options
-to the command-line tool must be provided in the issue description.  Strive to
-minimize the input IR, that is, remove piece of IR that are not contributing to
-the issue being triggered.  The list of command-line tool options should be
-similarly minimal.  Review the [Debugging Guide](getting_started/Debugging.md)
-for help on minimizing test cases.  Think of the input IR and tool options as of
-a prototype for a FileCheck-based test.
+**完全な**、そして **最小の** 問題を再現する手順を含めてください。
+他の開発者が MLIR リポジトリ上にあるコードとその手順 **のみ** を使って再現できるようにするべきです。
+理想的には、とある IR に対してコマンドラインツール (`mlir-opt` や `mlir-translate` など)
+を使うだけでその問題を観測できると良いです。この場合、その IR
+及びコマンドラインツールのオプションを正確に含める必要があります。
+入力の IR を最小限にする、つまり問題を再現するのには不要な部分を排除するよう努めてください。
+コマンドラインツールのオプションのリストについても同様に最小化してください。
+[デバッグガイド](getting_started/Debugging.md) に、テストケースの最小化に役立つ情報が書いています。
+要するに、入力 IR 及びツールのオプションが FileCheck ベースのテストの元になると思ってください。
 
-When the issue cannot be reproduced using command-line tools, e.g., the issue is
-related to APIs not exercised by (test) passes, provide the minimal functional
-code snippet that triggers the issue along with any relevant compilation
-instructions.  Think of the code snippet as of a unit test that exercises the
-issue.
+もし問題がコマンドツールで再現できない場合、
+例えば問題が (テスト) パスで実行されないような API 関連であった場合などは、
+問題を引き起こす最小のコードスニペットと、それに付随するコンパイル手順を含めてください。
+要するにコードスニペットを、問題を発生させる単体テストだと思ってください。

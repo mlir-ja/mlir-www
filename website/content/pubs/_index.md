@@ -29,7 +29,7 @@ weight: 1
   Alexander Belyaev, Matthias Springer, Tobias Gysi, Diego Caballero, Stephan Herhut, Stella Laurenzo,
   and Albert Cohen - In proceedings of the International Workshop on Languages and Compilers for
   Parallel Computing (LCPC) - October 12, 2022 - pp. 141-156.
-	[arXiv](https://arxiv.org/abs/2202.03293) に *拡張版* があります。
+	[arXiv](https://arxiv.org/abs/2202.03293) に **拡張版** があります。
 * [The Deep Learning Compiler: A Comprehensive Survey](https://arxiv.org/abs/2002.03794) -
   Li, Mingzhen, Yi Liu, Xiaoyan Liu, Qingxiao Sun, Xin You, Hailong Yang, Zhongzhi Luan, Lin Gan, Guangwen Yang, and Depei Qian. "The deep learning compiler: A comprehensive survey." IEEE Transactions on Parallel and Distributed Systems 32, no. 3 (2020): 708-727.
 
