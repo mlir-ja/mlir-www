@@ -1,5 +1,5 @@
 ---
-title: "開発ガイド"
+title: "開発者ガイド"
 date: 2019-11-29T15:26:15Z
 draft: false
 weight: 20
