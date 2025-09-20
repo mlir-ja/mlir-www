@@ -7,44 +7,45 @@ weight: 40
 
 {{< toc >}}
 
-## Quickstart commands
+## コマンド早見表
 
-These commands are explained below in more detail. All commands are run from the
-cmake build directory `build/`, after [building the project](/getting_started/).
+以下のコマンドの詳細はこの先で説明しています。
+全てのコマンドは cmake のビルドディレクトリである `build/` 以下で、
+[プロジェクトのビルド](/getting_started/) 後に実行されています。
 
-### Run all MLIR tests:
+### MLIR のテストを全て走らせる
 
 ```sh
 cmake --build . --target check-mlir
 ```
 
-### Run integration tests (requires `-DMLIR_INCLUDE_INTEGRATION_TESTS=ON`):
+### インテグレーションテストを走らせる (`-DMLIR_INCLUDE_INTEGRATION_TESTS=ON` が必須です)
 
 ```sh
 cmake --build . --target check-mlir-integration
 ```
 
-### Run C++ unit tests:
+### C++ のユニットテストを走らせる
 
 ```sh
 bin/llvm-lit -v tools/mlir/test/Unit
 ```
 
-### Run `lit` tests in a specific directory
+### 特定のディレクトリの `lit` テストを走らせる
 
 ```sh
 bin/llvm-lit -v tools/mlir/test/Dialect/Arith
 ```
 
-### Run a specific `lit` test file
+### 特定の `lit` テストファイルを走らせる
 
 ```sh
 bin/llvm-lit -v tools/mlir/test/Dialect/Polynomial/ops.mlir
 ```
 
-## Test categories
+## テストの種類
 
-### `lit` and `FileCheck` tests
+### `lit` + `FileCheck` テスト
 
 [`FileCheck`](https://llvm.org/docs/CommandGuide/FileCheck.html) is a tool that
 "reads two files (one from standard input, and one specified on the command
@@ -59,7 +60,7 @@ source tree under `mlir/test/`. Within this directory, tests are organized
 roughly mirroring `mlir/include/mlir/`, including subdirectories for `Dialect/`,
 `Transforms/`, `Conversion/`, etc.
 
-#### Example
+#### 例
 
 An example `FileCheck` test is shown below:
 
@@ -86,7 +87,7 @@ The above test asserts that, after running Common Subexpression Elimination
 (`-cse`), only one constant remains in the IR, and the sole SSA value is
 returned twice from the function.
 
-#### Build system details
+#### ビルドシステムの詳細
 
 The main way to run all the tests mentioned above in a single invocation can be
 done using the `check-mlir` target:
@@ -178,7 +179,7 @@ target, but you can typically use the generator directly to be more concise
 documentation for consistency, but being concise is often better for interactive
 workflows.
 
-### Diagnostic tests
+### 診断ログテスト
 
 MLIR provides rich source location tracking that can be used to emit errors,
 warnings, etc. from anywhere throughout the codebase, which are jointly called
@@ -217,7 +218,7 @@ func.func @foo(%a : f32) {
 }
 ```
 
-### Integration tests
+### インテグレーションテスト
 
 Integration tests are `FileCheck` tests that verify functional correctness of
 MLIR code by running it, usually by means of JIT compilation using
@@ -261,7 +262,7 @@ enough.
 The source files of the integration tests are organized within the `mlir` source
 tree by dialect (for example, `test/Integration/Dialect/Vector`).
 
-#### Hardware emulators
+#### ハードウェアエミュレータ
 
 The integration tests include some tests for targets that are not widely
 available yet, such as specific AVX512 features (like `vp2intersect`) and the
@@ -278,13 +279,13 @@ emulator>` denotes the path to the installed emulator binary. `sh cmake -G Ninja
 tests run as shown earlier, but will now include the indicated emulated tests as
 well.
 
-### C++ Unit tests
+### C++ ユニットテスト
 
 Unit tests are written using the
 [googletest](https://google.github.io/googletest/) framework and are located in
 the `mlir/unittests/` directory.
 
-## Contributor guidelines
+## コントリビュータガイドライン
 
 In general, all commits to the MLIR repository should include an accompanying
 test of some form. Commits that include no functional changes, such as API
@@ -303,7 +304,7 @@ data structure, then you may write C++ unit tests. This is preferred because the
 C++ APIs are not stable and subject to frequent refactoring. Using `lit` and
 `FileCheck` allows maintainers to improve the MLIR internals more easily.
 
-### FileCheck best practices
+### FileCheck のベストプラクティス
 
 FileCheck is an extremely useful utility, it allows for easily matching various
 parts of the output. This ease of use means that it becomes easy to write
@@ -384,7 +385,7 @@ func.func @simple_constant() -> (i32, i32) {
 }
 ```
 
-### Test Formatting Best Practices
+### テストのフォーマットのベストプラクティス
 
 When adding new tests, strive to follow these two key rules:
 
@@ -407,12 +408,12 @@ A well-thought-out naming convention helps achieve all of the above.
 
 ---
 
-#### Example: Improving Test Readability & Naming
+#### 例：テストの可読性と名づけの改善
 
 Consider these **three tests** that exercise `vector.maskedload -> vector.load`
 lowering under the `-test-vector-to-vector-lowering` flag:
 
-##### Before: Inconsistent & Hard to Differentiate
+##### 改善前：一貫しておらず区別もしにくい
 
 ```mlir
 // CHECK-LABEL:   func @maskedload_regression_1(
@@ -467,7 +468,7 @@ func.func @maskedload_regression_3(%arg0: memref<16xf32>, %arg1: vector<16xf32>)
 While all examples test `vector.maskedload` -> `vector.load lowering`, it is
 difficult to tell their actual differences.
 
-##### After Step 1 (Introduce Consistent Variable Names)
+##### 改善ステップ 1 (一貫した変数名の導入)
 
 To reduce cognitive load, use consistent names across MLIR and FileCheck (e.g.,
 `%arg0` and `A0` above are not consistent). Also, instead of using generic
@@ -511,7 +512,7 @@ func.func @maskedload_regression_3(%base: memref<16xf32>, %pass_thru: vector<16x
 }
 ```
 
-##### After Step 2 (Improve Test Naming)
+##### 改善ステップ 2 (テスト名の改善)
 
 Instead of using "regression" (which does not add unique information), rename
 tests based on key attributes:
@@ -548,7 +549,7 @@ func.func @maskedload_to_load_static_i32_all_false(%base: memref<16xf32>, %pass_
 }
 ```
 
-##### After Step 3 (Add The Newly Identified Missing Case)
+##### 改善ステップ 3 (新たに特定した不足しているケースを追加)
 
 Step 2 made it possible to see that there is a case which is not tested:
 
@@ -576,7 +577,7 @@ func.func @negative_maskedload_to_load_static_i32_mixed(%base: memref<16xf32>, %
 The `negative_` prefix indicates that this test should fail to lower, as the
 pattern should not match.
 
-##### Test Naming Convention
+##### テストの命名規則
 To summarize, here is the naming convention used in the examples above:
 
 * `@{negative_}?maskedload_to_load_{static|dynamic}_{i32|i8}_{all_true|all_false|mixed}`.
@@ -592,7 +593,7 @@ appropriate. For instance, in "folding" tests where a pattern is expected not
 to apply, using `no_` can be a more concise and equally clear alternative —
 e.g., `@no_fold_<case>_<subcase>.`
 
-#### What if there is no pre-existing style to follow?
+#### 従うべき前例が見つからなかった場合
 
 If you are adding a new test file, you can use other test files in the same
 directory as inspiration.
@@ -625,7 +626,7 @@ Test names should reflect _what_ is being tested, not _why_.
 Encoding _why_ in test names can lead to overly long and complex names.
 Instead, add inline comments where needed.
 
-#### Do not forget the common sense
+#### 常識を忘れないこと
 
 Always apply common sense when naming functions and variables. Encoding too
 much information in names makes the tests less readable and less maintainable.
@@ -633,7 +634,7 @@ much information in names makes the tests less readable and less maintainable.
 Trust your judgment. When in doubt, consult your "future self": _"Will this still
 make sense to me six months from now?_"
 
-#### Final Points - Key Principles
+#### 最後のポイント - 主要原則
 
 The above approach is just an example. It may not fit your use case perfectly,
 so feel free to adapt it as needed.  Key principles to follow:
@@ -644,7 +645,7 @@ so feel free to adapt it as needed.  Key principles to follow:
 These principles make tests easier to discover and maintain. For you, "future
 you", and the rest of the MLIR community.
 
-### Test Documentation Best Practices
+### テストのドキュメントのベストプラクティス
 
 In addition to following good naming and formatting conventions, please
 document your tests with comments. Focus on explaining **why** since the
@@ -696,14 +697,14 @@ The comments in the example above document two non-obvious behaviors:
 * _Why_ is the `in_bounds` attribute missing from the output?
 
 
-#### How to Identify What Needs Documentation?
+#### どこに対しドキュメントが要るか判別するには
 Think of yourself six months from now and ask: _"What might be difficult to
 understand without comments?"_
 
 If you expect something to be tricky for "future-you", it’s likely to be tricky
 for others encountering the test for the first time.
 
-#### Making Tests Self-Documenting
+#### テストを自己言及的にする
 We can improve documentation further by:
 * clarifying what pattern is being tested,
 * providing high-level reasoning, and
@@ -734,7 +735,7 @@ The example above documents:
 * The expected change in output.
 
 
-#### Documenting the "What"
+#### 「何」をドキュメントする
 You should always document why, but documenting what is also valid and
 encouraged in cases where:
 
@@ -796,7 +797,7 @@ Linalg vectorizer implementation (or, when analysing how
 Comments help you understand code, they do not replace the need to read it.
 Comments guide the reader, they do not repeat what the code already says.
 
-#### Final Points - Key Principles
+#### 最後のポイント - 主要原則
 Below are key principles to follow when documenting tests:
 * Always document _why_, document _what_ if you need to (e.g. the underlying
 	logic is non-trivial).
