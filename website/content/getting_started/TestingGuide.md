@@ -178,6 +178,11 @@ LIT_FILTER_OUT="Examples|Integrations" cmake --build . --target check-mlir
 
 ### 診断ログテスト
 
+MLIR は **診断ログ** と呼ばれるリッチなソースコード位置追跡システムを持っており、
+コードベースのどこからでもエラーや警告の出力に用いることができます。
+診断ログテストは、与えられた入力プログラムから特定の診断メッセージが出力されるかを検証します。
+
+
 MLIR provides rich source location tracking that can be used to emit errors,
 warnings, etc. from anywhere throughout the codebase, which are jointly called
 *diagnostics*. Diagnostic tests assert that specific diagnostic messages are

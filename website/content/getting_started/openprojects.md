@@ -5,15 +5,15 @@ draft: false
 weight: 25
 ---
 
-Below is a list of projects that can be suitable for [Google Summer of Code
-(GSOC)](https://summerofcode.withgoogle.com/) or just for someone to get started
-with contributing to MLIR. See also [the "beginner" issues](https://github.com/llvm/llvm-project/issues?q=is%3Aopen+label%3Amlir%3Allvm+label%3Abeginner)
-on the bugtracker.
-If you're interested in one of these projects, feel free to discuss it on
-the MLIR section of the [LLVM forums](https://llvm.discourse.group/c/mlir/31)
-or on the MLIR channel of the [LLVM discord](https://discord.gg/xS7Z362)
-server. The mentors are indicative and suggestion of first point of contact for
-starting on these projects.
+以下は [Google Summer of Code (GSOC)](https://summerofcode.withgoogle.com/) 、
+あるいは単に MLIR に対するコントリビューションを始めるのに適しているプロジェクトのリストです。
+バグトラッカーの [the "beginner" issues](https://github.com/llvm/llvm-project/issues?q=is%3Aopen+label%3Amlir%3Allvm+label%3Abeginner)
+も一緒にご覧ください。
+もしこの中で興味があるプロジェクトがあれば、気兼ねなく
+[LLVM フォーラム](https://llvm.discourse.group/c/mlir/31) の MLIR セクション、あるいは
+[LLVM discord](https://discord.gg/xS7Z362) の MLIR チャンネルで議論を行ってください。
+メンターとして以下に記載している方は、
+これらのプロジェクトを開始する際の最初の連絡先として参考にしてください。
 
 * Implement C bindings for the core IR: this will allow to manipulate IR from other languages.
 * llvm-canon kind of tools for MLIR (mentor: Mehdi Amini, Jacques Pienaar)
