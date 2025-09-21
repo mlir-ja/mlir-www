@@ -13,31 +13,31 @@ weight: 40
 全てのコマンドは cmake のビルドディレクトリである `build/` 以下で、
 [プロジェクトのビルド](/getting_started/) 後に実行されています。
 
-### MLIR のテストを全て走らせる
+### MLIR のテストを全て実行する
 
 ```sh
 cmake --build . --target check-mlir
 ```
 
-### インテグレーションテストを走らせる (`-DMLIR_INCLUDE_INTEGRATION_TESTS=ON` が必須です)
+### インテグレーションテストを実行する (`-DMLIR_INCLUDE_INTEGRATION_TESTS=ON` が必須です)
 
 ```sh
 cmake --build . --target check-mlir-integration
 ```
 
-### C++ のユニットテストを走らせる
+### C++ のユニットテストを実行する
 
 ```sh
 bin/llvm-lit -v tools/mlir/test/Unit
 ```
 
-### 特定のディレクトリの `lit` テストを走らせる
+### 特定のディレクトリの `lit` テストを実行する
 
 ```sh
 bin/llvm-lit -v tools/mlir/test/Dialect/Arith
 ```
 
-### 特定の `lit` テストファイルを走らせる
+### 特定の `lit` テストファイルを実行する
 
 ```sh
 bin/llvm-lit -v tools/mlir/test/Dialect/Polynomial/ops.mlir
@@ -47,22 +47,21 @@ bin/llvm-lit -v tools/mlir/test/Dialect/Polynomial/ops.mlir
 
 ### `lit` + `FileCheck` テスト
 
-[`FileCheck`](https://llvm.org/docs/CommandGuide/FileCheck.html) is a tool that
-"reads two files (one from standard input, and one specified on the command
-line) and uses one to verify the other." One file contains a set of `CHECK` tags
-that specify strings and patterns expected to appear in the other file. MLIR
-utilizes [`lit`](https://llvm.org/docs/CommandGuide/lit.html) to orchestrate the
-execution of tools like `mlir-opt` to produce an output, and `FileCheck` to
-verify different aspects of the IR—such as the output of a transformation pass.
+[`FileCheck`](https://llvm.org/docs/CommandGuide/FileCheck.html) は、
+「2 つのファイルを読んで (一方は標準入力から、もう片方はコマンドで指定されたものから)、
+一方をもう片方の検証に用いる」ツールです。片方のファイルは、
+もう片方のファイルで現れるであろう文字列やパターンを指定する `CHECK` タグを持ちます。
+MLIR では [`lit`](https://llvm.org/docs/CommandGuide/lit.html)
+を用いて `mlir-opt` のようなツールの実行を制御しており、そして `FileCheck`
+を用いて変換パスの出力など IR の違う側面を検証しています。
 
-The source files of `lit`/`FileCheck` tests are organized within the `mlir`
-source tree under `mlir/test/`. Within this directory, tests are organized
-roughly mirroring `mlir/include/mlir/`, including subdirectories for `Dialect/`,
-`Transforms/`, `Conversion/`, etc.
+`lit`/`FileCheck` のソースファイルは、`mlir` ソースツリー以下の `mlir/test/` にあります。
+このディレクトリ内では、テストは `mlir/include/mlir/` 内と大体同じ構造になっており、
+`Dialect/`、`Transforms/`、`Conversion/` などのサブディレクトリがあります。
 
 #### 例
 
-An example `FileCheck` test is shown below:
+`FileCheck` テストの例は以下の通りです。
 
 ```mlir
 // RUN: mlir-opt %s -cse | FileCheck %s
@@ -78,106 +77,104 @@ func.func @simple_constant() -> (i32, i32) {
 }
 ```
 
-A comment with `RUN` represents a `lit` directive specifying a command line
-invocation to run, with special substitutions like `%s` for the current file. A
-comment with `CHECK` represents a `FileCheck` directive to assert a string or
-pattern appears in the output.
+`RUN` で始まるコメントは `lit` のディレクディブで、実行させるコマンドを指定します。
+`%s` が現在のファイルを示す、といったような特殊なプレースホルダがいくつかあります。
+`CHECK` で始まるコメントは `FileCheck` のディレクディブで、
+出力に現れるであろう文字列やパターンを検証するのに使います。
 
-The above test asserts that, after running Common Subexpression Elimination
-(`-cse`), only one constant remains in the IR, and the sole SSA value is
-returned twice from the function.
+上のテストで検証しているのは、共通部分式除去 (`-cse`) を行った後、
+定数が 1 つだけ IR に残っており、単一の SSA 値が 2 回返されているかどうかです。
 
 #### ビルドシステムの詳細
 
-The main way to run all the tests mentioned above in a single invocation can be
-done using the `check-mlir` target:
+上記のようなテストを 1 回のコマンド実行で全て走らせる主な方法としては、
+`check-mlir` を使うものがあります。
 
 ```sh
 cmake --build . --target check-mlir
 ```
 
-Invoking the `check-mlir` target is roughly equivalent to running (from the
-build directory, after building):
+`check-mlir` ターゲットを実行するのは大体以下を実行するのと同じです
+(ビルドディレクトリ内、ビルド後)。
 
 ```shell
 ./bin/llvm-lit tools/mlir/test
 ```
 
-See the [Lit Documentation](https://llvm.org/docs/CommandGuide/lit.html) for a
-description of all options.
+[Lit のドキュメント](https://llvm.org/docs/CommandGuide/lit.html)
+に全てのオプションの詳細があります。
 
-Subsets of the testing tree can be invoked by passing a more specific path
-instead of `tools/mlir/test` above. Example:
+テストツリーの一部だけ実行したい場合は、 `tools/mlir/test`
+よりも詳細なパスを入れてください。例えば、
 
 ```shell
 ./bin/llvm-lit tools/mlir/test/Dialect/Arith
 
-# Note that it is possible to test at the file granularity, but since these
-# files do not actually exist in the build directory, you need to know the
-# name.
+# ファイル単位でのテストは可能ですが、これらのファイルは実際には
+# ビルドディレクトリには存在していないため、ファイル名を事前に
+# 把握している必要があります。
 ./bin/llvm-lit tools/mlir/test/Dialect/Arith/ops.mlir
 ```
 
-Or for running all the C++ unit-tests:
+あるいは全ての C++ ユニットテストを走らせるには、
 
 ```shell
 ./bin/llvm-lit tools/mlir/test/Unit
 ```
 
-The C++ unit-tests can also be executed as individual binaries, which is
-convenient when iterating on cycles of rebuild-test:
+C++ ユニットテストは単体のバイナリとしても実行でき、
+これはリビルドテストのサイクルを回す際に便利です。
 
 ```shell
-# Rebuild the minimum amount of libraries needed for the C++ MLIRIRTests
+# C++ の MLIRIRTests を実行するために必要な最小限のライブラリをリビルドする
 cmake --build . --target tools/mlir/unittests/IR/MLIRIRTests
 
-# Invoke the MLIRIRTest C++ Unit Test directly
+# MLIRIRTest C++ ユニットテストを直接実行する
 tools/mlir/unittests/IR/MLIRIRTests
 
-# It works for specific C++ unit-tests as well:
+# 一部の C++ ユニットテストではこれでも動作します
 LIT_OPTS="--filter=MLIRIRTests -a" cmake --build . --target check-mlir
 
-# Run just one specific subset inside the MLIRIRTests:
+# MLIRIRTests 内のうち指定した一つのサブセットを実行する
 tools/mlir/unittests/IR/MLIRIRTests --gtest_filter=OpPropertiesTest.Properties
 ```
 
-Lit has a number of options that control test execution. Here are some of the
-most useful for development purposes:
+lit にはテスト実行を制御するいくつかのオプションがあります。
+以下はそのうち特に開発用途に役に立つものです。
 
 *   [`--filter=REGEXP`](https://llvm.org/docs/CommandGuide/lit.html#cmdoption-lit-filter) :
-    Only runs tests whose name matches the REGEXP. Can also be specified via the
-    `LIT_FILTER` environment variable.
+    名前が REGEXP にマッチするテストだけ実行します。
+    環境変数 `LIT_FILTER` でも同様に指定できます。
 *   [`--filter-out=REGEXP`](https://llvm.org/docs/CommandGuide/lit.html#cmdoption-lit-filter-out) :
-    Filters out tests whose name matches the REGEXP. Can also be specified via
-    the `LIT_FILTER_OUT` environment variable.
-*   [`-a`](https://llvm.org/docs/CommandGuide/lit.html#cmdoption-lit-a) : Shows
-    all information (useful while iterating on a small set of tests).
+    名前が REGEXP にマッチするテストを排除します。
+    環境変数 `LIT_FILTER_OUT` でも同様に指定できます。
+*   [`-a`](https://llvm.org/docs/CommandGuide/lit.html#cmdoption-lit-a) :
+    全情報を表示します (少数のテストを回す際に役に立ちます)。
 *   [`--time-tests`](https://llvm.org/docs/CommandGuide/lit.html#cmdoption-lit-time-tests) :
-    Prints timing statistics about slow tests and overall histograms.
+    遅いテストや全テストのヒストグラムなどかかった時間の統計を表示します。
 
-Any Lit options can be set in the `LIT_OPTS` environment variable. This is
-especially useful when using the build system target `check-mlir`.
+どの lit のオプションでも環境変数 `LIT_OPS` から設定できます。
+これは特に `check-mlir` をビルドシステムターゲットにした際に役に立ちます。
 
-Examples:
+例:
 
 ```
-# Only run tests that have "python" in the name and print all invocations.
+# "python" が名前に含まれるテストを実行し全ての情報を表示する
 LIT_OPTS="--filter=python -a" cmake --build . --target check-mlir
 
-# Only run the array_attributes python test, using the LIT_FILTER mechanism.
+# LIT_FILTER を用い array_attributes python テストのみ実行する
 LIT_FILTER="python/ir/array_attributes" cmake --build . --target check-mlir
 
-# Run everything except for example and integration tests (which are both
-# somewhat slow).
+# 例とインテグレーションテストを除いて全てのテストを実行する (その 2 つは遅いため)。
 LIT_FILTER_OUT="Examples|Integrations" cmake --build . --target check-mlir
 ```
 
-Note that the above use the generic cmake command for invoking the `check-mlir`
-target, but you can typically use the generator directly to be more concise
-(i.e. if configured for `ninja`, then `ninja check-mlir` can replace the `cmake
---build . --target check-mlir` command). We use generic `cmake` commands in
-documentation for consistency, but being concise is often better for interactive
-workflows.
+注意点として、上のコマンドは汎用的な cmake コマンドを用いて `check-mlir` ターゲットを実行してますが、
+通常の場合ジェネレータを直接使用することでより簡潔に記述できます
+(`ninja` でコンフィグされている場合は、
+`cmake --build . --target check-mlir` の代わりに単に `ninja check-mlir` 書けます)。
+このドキュメントでは一貫性のため汎用的な `cmake` を用いていますが、
+インタラクティブなワークフローでは一般的に簡潔な方が望ましい場合が多いです。
 
 ### 診断ログテスト
 
