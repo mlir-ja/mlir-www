@@ -15,22 +15,34 @@ weight: 25
 メンターとして以下に記載している方は、
 これらのプロジェクトを開始する際の最初の連絡先として参考にしてください。
 
-* Implement C bindings for the core IR: this will allow to manipulate IR from other languages.
-* llvm-canon kind of tools for MLIR (mentor: Mehdi Amini, Jacques Pienaar)
-* IR query tool to make exploring the IR easier (e.g., all operations dominated
-  by X, find possible path between two ops, etc.) (mentor: Jacques Pienaar)
-* GLSL to SPIR-V dialect frontend (mentor: Lei Zhang)
-  * Requires: building up graphics side of the SPIR-V dialect
-  * Purpose: give MLIR more frontends :) improve graphics tooling
-  * Potential real-world usage: providing a migration solution from WebGL
-  (shaders represented as GLSL) to WebGPU (shaders represented as SPIR-V-like language, [WGSL](https://gpuweb.github.io/gpuweb/wgsl.html))
-* TableGen "front-end dialect" (mentor: Jacques Pienaar)
-* Polyhedral scheduling in MLIR (mentor: Alex Zinenko)
-* MLIR visualization (mentor: Jacques Pienaar)
-* MLIR sparsifier (aka sparse compiler) [starter tasks](https://github.com/llvm/llvm-project/labels/mlir%3Asparse) (mentor: Aart Bik)
-* MLIR allows for representing multiple levels of abstraction all together in the same IR/function. Visualizing MLIR modules therefore requires going beyond visualizing a graph of nodes all at the same level (which is not trivial in and of itself!), nor is it specific to Machine Learning. Beyond visualizing a MLIR module, there is also visualizing MLIR itself that is of interest. In particular, visualizing the rewrite rules, visualizing the matching process (including the failure to match, sort of like https://www.debuggex.com/ but for declarative rewrites), considering effects of rewrites over time, etc. The visualizations should all be built with open source components but whether standalone (e.g., combining with, say, GraphViz to generate offline images) or dynamic tools (e.g., displayed in browser) is open for discussion. It should be usable completely offline in either case. We will be working with interested students to refine the exact project based on interests given the wide scope of potential approaches. And open to proposals within this general area.
-* Rewrite patterns expressed in MLIR (mentor: Jacques Pienaar)
-* Generic value range analysis for MLIR (mentor: River Riddle)
+* コア IR への C バインディングの実装。これにより、他の言語から IR を操作することができるようになります。
+* llvm-canon のようなツールの MLIR 版 (メンター: Mehdi Amini, Jacques Pienaar)
+* IR の調査を簡単にするための IR クエリツール (例えば、X が支配している全ての op、
+  ある op から別の op への全ての経路など) (mentor: Jacques Pienaar)
+* SPIR-V 方言に変換される GLSL フロントエンド (mentor: Lei Zhang)
+  * 要件: SPIR-V 方言のグラフィック関連の機能の構築が必要
+  * 目的: MLIR にフロントエンドをもっと作る :) グラフィック関連ツールの改善
+  * 実世界での活用可能性: WebGL (GLSL でシェーダーが表現されている) から
+	WebGPU (シェーダーが SPIR-V のような言語である [WGSL](https://gpuweb.github.io/gpuweb/wgsl.html)
+	で表現されている) へのマイグレーションを解決する一案になる
+* TableGen の「フロントエンド方言」 (mentor: Jacques Pienaar)
+* MLIR での多面体スケジューリング (mentor: Alex Zinenko)
+* MLIR 可視化 (mentor: Jacques Pienaar)
+* MLIR スパース化 (つまりスパースコンパイラ) [starter tasks](https://github.com/llvm/llvm-project/labels/mlir%3Asparse) (mentor: Aart Bik)
+* MLIR は複数の抽象化レベルを全てひとつの IR / 関数内で表すことができます。
+  そのため MLIR モジュールの視覚化は、全て同じ抽象度のノードのグラフを表示する (この時点で自明ではない！) よりもはるかに複雑で、
+  しかも機械学習用途には限定されません。
+  MLIR モジュールの可視化に加え、MLIR そのものの可視化も重要です。
+  特に、書き換え規則の可視化や、マッチの課程の可視化 (マッチ失敗も含む。 https://www.debuggex.com/ のような宣言的書き換え向け)、
+  書き換えの影響を時間軸で考慮する、などです。
+  可視化は全てオープンソースの部品で構成されるべきですが、
+  スタンドアロンツールや (例えばオフラインの画像生成のための GraphViz など、そういったツールとの組み合わせ)、
+  動的なツール (例えばブラウザでの表示) を用いても良いかは議論の余地があります。
+  いずれの場合にせよ、オフラインで使えるようにすべきです。
+  私たちは、幅広いアプローチの可能性を考慮して、関心のある学生と協力して、興味関心に基づいた正確なプロジェクトを改良していきます。
+  また、この分野全般のプロポーザルも受け入れます。
+* MLIR で表現された書き換えパターン (mentor: Jacques Pienaar)
+* MLIR での汎用の値の範囲解析 (mentor: River Riddle)
 
 ### Projects started/starting soon:
 
