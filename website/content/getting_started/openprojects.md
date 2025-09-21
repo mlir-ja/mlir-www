@@ -18,17 +18,17 @@ weight: 25
 * コア IR への C バインディングの実装。これにより、他の言語から IR を操作することができるようになります。
 * llvm-canon のようなツールの MLIR 版 (メンター: Mehdi Amini, Jacques Pienaar)
 * IR の調査を簡単にするための IR クエリツール (例えば、X が支配している全ての op、
-  ある op から別の op への全ての経路など) (mentor: Jacques Pienaar)
-* SPIR-V 方言に変換される GLSL フロントエンド (mentor: Lei Zhang)
+  ある op から別の op への全ての経路など) (メンター: Jacques Pienaar)
+* SPIR-V 方言に変換される GLSL フロントエンド (メンター: Lei Zhang)
   * 要件: SPIR-V 方言のグラフィック関連の機能の構築が必要
   * 目的: MLIR にフロントエンドをもっと作る :) グラフィック関連ツールの改善
   * 実世界での活用可能性: WebGL (GLSL でシェーダーが表現されている) から
 	WebGPU (シェーダーが SPIR-V のような言語である [WGSL](https://gpuweb.github.io/gpuweb/wgsl.html)
 	で表現されている) へのマイグレーションを解決する一案になる
-* TableGen の「フロントエンド方言」 (mentor: Jacques Pienaar)
-* MLIR での多面体スケジューリング (mentor: Alex Zinenko)
-* MLIR 可視化 (mentor: Jacques Pienaar)
-* MLIR スパース化 (つまりスパースコンパイラ) [starter tasks](https://github.com/llvm/llvm-project/labels/mlir%3Asparse) (mentor: Aart Bik)
+* TableGen の「フロントエンド方言」 (メンター: Jacques Pienaar)
+* MLIR での多面体スケジューリング (メンター: Alex Zinenko)
+* MLIR 可視化 (メンター: Jacques Pienaar)
+* MLIR スパース化 (つまりスパースコンパイラ) [starter tasks](https://github.com/llvm/llvm-project/labels/mlir%3Asparse) (メンター: Aart Bik)
 * MLIR は複数の抽象化レベルを全てひとつの IR / 関数内で表すことができます。
   そのため MLIR モジュールの視覚化は、全て同じ抽象度のノードのグラフを表示する (この時点で自明ではない！) よりもはるかに複雑で、
   しかも機械学習用途には限定されません。
@@ -41,18 +41,18 @@ weight: 25
   いずれの場合にせよ、オフラインで使えるようにすべきです。
   私たちは、幅広いアプローチの可能性を考慮して、関心のある学生と協力して、興味関心に基づいた正確なプロジェクトを改良していきます。
   また、この分野全般のプロポーザルも受け入れます。
-* MLIR で表現された書き換えパターン (mentor: Jacques Pienaar)
-* MLIR での汎用の値の範囲解析 (mentor: River Riddle)
+* MLIR で表現された書き換えパターン (メンター: Jacques Pienaar)
+* MLIR での汎用の値の範囲解析 (メンター: River Riddle)
 
-### Projects started/starting soon:
+### 開始した/これから開始するプロジェクト
 
-This is section for projects that have not yet started but there are
-individuals/groups intending to start work on in near future.
+このセクションは、まだ開始していないが、
+近い将来開始しようと画策している個々人やグループが存在するプロジェクトについてです。
 
-* [bugpoint/llvm-reduce](https://llvm.org/docs/BugpointRedesign.html) kind
-  of tools for MLIR (mentor: Mehdi Amini, Jacques Pienaar)
-* MLIR visualization, there are some projects in flight but we unfortunately
-  don't know the project plans of those teams. But if you intend to work on
-  something in this area it would be good to discuss on the forum early
-  in case there are collaboration opportunity.
+* [bugpoint/llvm-reduce](https://llvm.org/docs/BugpointRedesign.html) のようなツールの
+  MLIR 版 (メンター: Mehdi Amini, Jacques Pienaar)
+* MLIR の可視化。幾つかのプロジェクトが動きだしていますが、
+  残念ながらこれらのチームのプロジェクトプランは把握できていません。
+  この分野で何かに取り組みたいとお考えの場合は、コラボレーションの機会があるかもしれないので、
+  早めにフォーラムで議論していただければ幸いです。
 
