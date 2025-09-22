@@ -5,20 +5,20 @@ draft: false
 weight: 30
 ---
 
-This glossary contains definitions of MLIR-specific terminology. It is intended
-to be a quick reference document. For terms which are well-documented elsewhere,
-definitions are kept brief and the header links to the more in-depth
-documentation.
+この用語集では MLIR 特有の言い回しの定義を掲載しています。
+そしてクイックリファレンスとして用いることも想定しています。
+他のドキュメントで詳細な説明がある用語は、定義は簡易的に説明し、
+ヘッダーにより詳細が書かれたドキュメントへのリンクを付けています。
 
-<!-- When contributing, please ensure that entries remain in alphabetical order. -->
+<!-- コントリビューション時は、英語版のアルファベット順を保ってください。 -->
 
-#### [Block](../docs/LangRef#blocks)
+#### [ブロック](../docs/LangRef#blocks)
 
 A sequential list of operations without control flow.
 
 Also called a [basic block](https://en.wikipedia.org/wiki/Basic_block).
 
-#### Conversion
+#### 変換
 
 The transformation of code represented in one dialect into a semantically
 equivalent representation in another dialect (i.e. inter-dialect conversion) or
@@ -29,24 +29,24 @@ Conversion refers to a transformation between (or within) dialects, but all
 still within MLIR, whereas translation refers to a transformation between MLIR
 and an external representation.
 
-### [CSE (Constant Subexpression Elimination)](../docs/Passes/#-cse)
+### [CSE (部分共通式除去)](../docs/Passes/#-cse)
 
 CSE eliminates expressions computing already-computed values.
 
-### DCE (Dead Code Elimination)
+### DCE (デッドコード除去)
 
 DCE removes unreachable code and expressions leading to unused results.
 
 The [canonicalize pass](https://mlir.lemon.ski/docs/Canonicalization/) performs DCE as part of the canonicalization.
 
-#### [Declarative Rewrite Rule](../docs/DeclarativeRewrites) (DRR)
+#### [宣言的書き換えルール](../docs/DeclarativeRewrites) (DRR)
 
 A [rewrite rule](https://en.wikipedia.org/wiki/Graph_rewriting) which can be
 defined declaratively (e.g. through specification in a
 [TableGen](https://llvm.org/docs/TableGen/) record). At compiler build time,
 these rules are expanded into an equivalent `mlir::RewritePattern` subclass.
 
-#### [Dialect](../docs/LangRef#dialects)
+#### [方言](../docs/LangRef#dialects)
 
 A dialect is a grouping of functionality which can be used to extend the MLIR
 system.
@@ -69,7 +69,7 @@ way.
 "language", as the latter would wrongly suggest that these different namespaces
 define entirely distinct IRs.)
 
-#### Export
+#### エクスポート
 
 To transform code represented in MLIR into a semantically equivalent
 representation which is external to MLIR.
@@ -78,7 +78,7 @@ The tool that performs such a transformation is called an exporter.
 
 See also: [translation](#translation).
 
-#### [Function](../docs/LangRef#functions)
+#### [関数](../docs/LangRef#functions)
 
 An [operation](#operation-op) with a name containing one [region](#region).
 
@@ -86,7 +86,7 @@ The region of a function is not allowed to implicitly capture values defined
 outside of the function, and all external references must use function arguments
 or attributes that establish a symbolic connection.
 
-#### Import
+#### インポート
 
 To transform code represented in an external representation into a semantically
 equivalent representation in MLIR.
@@ -95,7 +95,7 @@ The tool that performs such a transformation is called an importer.
 
 See also: [translation](#translation).
 
-#### Legalization
+#### 合法化
 
 The process of transforming operations into a semantically equivalent
 representation which adheres to the requirements set by the
@@ -104,7 +104,7 @@ representation which adheres to the requirements set by the
 That is, legalization is accomplished if and only if the new representation
 contains only operations which are legal, as specified in the conversion target.
 
-#### Lowering
+#### ローワリング
 
 The process of transforming a higher-level representation of an operation into a
 lower-level, but semantically equivalent, representation.
@@ -117,7 +117,7 @@ operations are legal versus illegal after lowering.
 
 See also: [legalization](#legalization).
 
-#### [Module](../docs/LangRef#module)
+#### [モジュール](../docs/LangRef#module)
 
 An [operation](#operation-op) which contains a single region containing a single
 block that is comprised of operations.
@@ -125,7 +125,7 @@ block that is comprised of operations.
 This provides an organizational structure for MLIR operations, and is the
 expected top-level operation in the IR: the textual parser returns a Module.
 
-#### [Operation](../docs/LangRef#operations) (op)
+#### [オペレーション](../docs/LangRef#operations) (op)
 
 A unit of code in MLIR. Operations are the building blocks for all code and
 computations represented by MLIR. They are fully extensible (there is no fixed
@@ -141,12 +141,12 @@ general API into an operation instance. An `Op` is the base class of a derived
 operation, like `ConstantOp`, and acts as smart pointer wrapper around a
 `Operation*`
 
-#### [Region](../docs/LangRef#regions)
+#### [リージョン](../docs/LangRef#regions)
 
 A [CFG](https://en.wikipedia.org/wiki/Control-flow_graph) of MLIR
 [blocks](#block).
 
-#### Round-trip
+#### ラウンドトリップ
 
 The process of converting from a source format to a target format and then back
 to the source format.
@@ -160,12 +160,12 @@ be done entirely within the MLIR representation. This separation - making the
 [importer](#import) as simple as possible and performing all further
 cleanups/lowering in MLIR - has proven to be a useful design pattern.
 
-#### [Terminator operation](../docs/LangRef#control-flow-and-ssacfg-regions)
+#### [ターミネータ op](../docs/LangRef#control-flow-and-ssacfg-regions)
 
 An [operation](#operation-op) which *must* terminate a [block](#block).
 Terminator operations are a special category of operations.
 
-#### Transitive lowering
+#### 推移的ローワリング
 
 An A->B->C [lowering](#lowering); that is, a lowering in which multiple patterns
 may be applied in order to fully transform an illegal operation into a set of
@@ -177,7 +177,7 @@ intermediate patterns not in the conversion target) in order to fully legalize
 an operation. This is accomplished through
 [partial conversion](../docs/DialectConversion#modes-of-conversion).
 
-#### Translation
+#### 翻訳
 
 The transformation of code represented in an external (non-MLIR) representation
 into a semantically equivalent representation in MLIR (i.e.
