@@ -5,7 +5,7 @@ draft: false
 weight: 30
 ---
 
-この用語集では MLIR 特有の言い回しの定義を掲載しています。
+この用語集では MLIR 特有の用語の定義を掲載しています。
 そしてクイックリファレンスとして用いることも想定しています。
 他のドキュメントで詳細な説明がある用語は、定義は簡易的に説明し、
 ヘッダーにより詳細が書かれたドキュメントへのリンクを付けています。
@@ -14,176 +14,161 @@ weight: 30
 
 #### [ブロック](../docs/LangRef#blocks)
 
-A sequential list of operations without control flow.
+コントロールフローを除いた、op を逐次的に並べたリスト。
 
-Also called a [basic block](https://en.wikipedia.org/wiki/Basic_block).
+[基本ブロック](https://ja.wikipedia.org/wiki/%E5%9F%BA%E6%9C%AC%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF) とも呼ばれている。
 
 #### 変換
 
-The transformation of code represented in one dialect into a semantically
-equivalent representation in another dialect (i.e. inter-dialect conversion) or
-the same dialect (i.e. intra-dialect conversion).
+ある方言で表されたコードを、
+意味が等しい他の方言のコードに変換 (つまり方言間変換) したり、
+あるいは同じ方言のコードに変換 (つまり方言内変換) すること。
 
-In the context of MLIR, conversion is distinct from [translation](#translation).
-Conversion refers to a transformation between (or within) dialects, but all
-still within MLIR, whereas translation refers to a transformation between MLIR
-and an external representation.
+MLIR の文脈では、「変換」と[「翻訳」](#translation)は違う意味で使われています。
+「変換」は方言間 (あるいは方言内) で変換を行いますが、それでも全て MLIR 内部に留まっています。
+一方「翻訳」は MLIR と外部の表現との間の変換を指します。
 
 ### [CSE (部分共通式除去)](../docs/Passes/#-cse)
 
-CSE eliminates expressions computing already-computed values.
+CSE は、既に計算された値をまた計算する式を除去します。
 
 ### DCE (デッドコード除去)
 
-DCE removes unreachable code and expressions leading to unused results.
+DCE は、到達不可能なコードや結果が使われていない式を除去します。
 
-The [canonicalize pass](https://mlir.lemon.ski/docs/Canonicalization/) performs DCE as part of the canonicalization.
+[カノニカライズパス](https://mlir.lemon.ski/docs/Canonicalization/) はカノニカライズの一貫として DCE を実行します。
 
 #### [宣言的書き換えルール](../docs/DeclarativeRewrites) (DRR)
 
-A [rewrite rule](https://en.wikipedia.org/wiki/Graph_rewriting) which can be
-defined declaratively (e.g. through specification in a
-[TableGen](https://llvm.org/docs/TableGen/) record). At compiler build time,
-these rules are expanded into an equivalent `mlir::RewritePattern` subclass.
+宣言的に定義できる
+[書き換えルール (en)](https://en.wikipedia.org/wiki/Graph_rewriting)。
+[TableGen](https://llvm.org/docs/TableGen/) での記述を通して行います。
+コンパイラのビルド時に、ルールは等価な `mlir::RewritePattern` のサブクラスとして展開されます。
 
 #### [方言](../docs/LangRef#dialects)
 
-A dialect is a grouping of functionality which can be used to extend the MLIR
-system.
+方言とは、MLIR のシステムを拡張するのに使用できる機能群のグループです。
 
-A dialect creates a unique `namespace` within which new
-[operations](#operation-op), [attributes](../docs/LangRef#attributes), and
-[types](../docs/LangRef#type-system) are defined. This is the fundamental method by
-which to extend MLIR.
+方言は、新しい [op](#operation-op)、[属性](../docs/LangRef#attributes)、
+[型](../docs/LangRef#type-system) を定義するための入れ物である一意な名前空間を作ります。
+これは MLIR を拡張するための基本的な方法です。
 
-In this way, MLIR is a meta-IR: its extensible framework allows it to be
-leveraged in many different ways (e.g. at different levels of the compilation
-process). Dialects provide an abstraction for the different uses of MLIR while
-recognizing that they are all a part of the meta-IR that is MLIR.
+このように、MLIR はメタな IR です。というのは、MLIR は拡張性の高いフレームワークであり、
+例えばコンパイル時の様々な抽象度レベルに、多様な活用方法があります。
+方言は MLIR の異なる用途への抽象を用意してくれると同時に、
+一方でこれら全てが MLIR というメタ IR の一部として認識できるようになります。
 
-The tutorial provides an example of
-[interfacing with MLIR](../docs/Tutorials/Toy/Ch-2#interfacing-with-mlir) in this
-way.
+チュートリアルではこの方法を用いて
+[MLIR と連携する](../docs/Tutorials/Toy/Ch-2#interfacing-with-mlir) 例を掲載しています。
 
-(Note that we have intentionally selected the term "dialect" instead of
-"language", as the latter would wrongly suggest that these different namespaces
-define entirely distinct IRs.)
+(注: 意図的に「言語」ではなく「方言」という用語を選択したのは、「言語」という語を用いてしまうと、
+これらの異なる名前空間が完全に独立な IR を定義していると誤解されてしまう可能性があるためです。)
 
 #### エクスポート
 
-To transform code represented in MLIR into a semantically equivalent
-representation which is external to MLIR.
+MLIR で表現されたコードを、意味が等しい MLIR の外部の表現に翻訳すること。
 
-The tool that performs such a transformation is called an exporter.
+このような翻訳を行うツールはエクスポータと呼ばれています。
 
-See also: [translation](#translation).
+こちらも参照: [翻訳](#translation).
 
 #### [関数](../docs/LangRef#functions)
 
-An [operation](#operation-op) with a name containing one [region](#region).
+ただ一つの [リージョン](#region) を持つ名前付きの [op](#operation)。
 
-The region of a function is not allowed to implicitly capture values defined
-outside of the function, and all external references must use function arguments
-or attributes that establish a symbolic connection.
+関数のリージョンでは関数外部の値を暗黙的にキャプチャすることは禁止されており、
+全ての外部への参照は関数の引数もしくはシンボル接続を確立する属性を通す必要があります。
 
 #### インポート
 
-To transform code represented in an external representation into a semantically
-equivalent representation in MLIR.
+外部の表現で表されたコードを、意味が等しい MLIR の表現に翻訳すること。
 
-The tool that performs such a transformation is called an importer.
+このような翻訳を行うツールはインポータと呼ばれています。
 
-See also: [translation](#translation).
+こちらも参照: [translation](#translation).
 
 #### 合法化
 
-The process of transforming operations into a semantically equivalent
-representation which adheres to the requirements set by the
-[conversion target](../docs/DialectConversion#conversion-target).
+[変換ターゲット](../docs/DialectConversion#conversion-target)
+で設定された要件を満たすように、コードを意味の等しい表現に変換すること。
 
-That is, legalization is accomplished if and only if the new representation
-contains only operations which are legal, as specified in the conversion target.
+つまり合法化が達成されるのは、変換ターゲットで指定されたような、
+合法な op のみを新しい表現が持っているとき、かつそのときに限ります。
 
 #### ローワリング
 
-The process of transforming a higher-level representation of an operation into a
-lower-level, but semantically equivalent, representation.
+高抽象度の op 表現を、低抽象度ではあるが意味が等しい表現に変換すること。
 
-In MLIR, this is typically accomplished through
-[dialect conversion](../docs/DialectConversion). This provides a framework by which
-to define the requirements of the lower-level representation, called the
-[conversion target](../docs/DialectConversion#conversion-target), by specifying which
-operations are legal versus illegal after lowering.
+MLIR では、これは通常 [方言変換](../docs/DialectConversion) により実現されます。
+これは、どの op が合法でどの op が違法かを指定することによって、
+低レベル表現の要件 (これを [変換ターゲット](../docs/DialectConversion#conversion-target) と呼びます)
+を定義するためのフレームワークを提供しています。
 
-See also: [legalization](#legalization).
+こちらも参照: [legalization](#legalization).
 
 #### [モジュール](../docs/LangRef#module)
 
-An [operation](#operation-op) which contains a single region containing a single
-block that is comprised of operations.
+複数の op を含む単一のブロックにより構成された単一のリージョンを持つ [op](#operation-op)。
 
-This provides an organizational structure for MLIR operations, and is the
-expected top-level operation in the IR: the textual parser returns a Module.
+この op は複数の MLIR op の組織構造を構成するためのもので、
+通常は IR の中のトップレベル op になります。
+つまりテキストをパースするとモジュールが返ります。
 
 #### [オペレーション](../docs/LangRef#operations) (op)
 
-A unit of code in MLIR. Operations are the building blocks for all code and
-computations represented by MLIR. They are fully extensible (there is no fixed
-list of operations) and have application-specific semantics.
+MLIR におけるコード単位。オペレーション (略してop)
+は MLIR で表現される全てのコードや計算を組み立てるための構成要素です。
+op はすべてにおいて拡張可能であり (固定の op リストというものは存在しません)、
+アプリケーション固有の意味論を持っています。
 
-An operation can have zero or more [regions](#region). Note that this creates a
-nested IR structure, as regions consist of blocks, which in turn, consist of a
-list of operations.
+op は 0 個以上の [リージョン](#region) を持つことが出来ます。
+リージョンはブロックで構造されており、ブロックは op 列で構成されているため、
+これによりネストした IR 構造が持てます。
 
-In MLIR, there are two main classes related to operations: `Operation` and `Op`.
-Operation is the actual opaque instance of the operation, and represents the
-general API into an operation instance. An `Op` is the base class of a derived
-operation, like `ConstantOp`, and acts as smart pointer wrapper around a
-`Operation*`
+MLIR では、 `Operation` と `Op` という op に関連する 2 つの主なクラスがあります。
+Operation の方は op の実際の内部インスタンスであり、op インスタンスに対する汎用 API を表します。
+`Op` の方は例えば `ConstantOp` のような継承された op の基底クラスであり、
+`Operation*` のスマートポインタラッパーとして機能します。
 
 #### [リージョン](../docs/LangRef#regions)
 
-A [CFG](https://en.wikipedia.org/wiki/Control-flow_graph) of MLIR
-[blocks](#block).
+MLIR の 0 個以上の [ブロック](#block) で構成された
+[制御フローグラフ](https://ja.wikipedia.org/wiki/%E5%88%B6%E5%BE%A1%E3%83%95%E3%83%AD%E3%83%BC%E3%82%B0%E3%83%A9%E3%83%95) 。
 
 #### ラウンドトリップ
 
-The process of converting from a source format to a target format and then back
-to the source format.
+ソースとなる形式からターゲットとなる形式に変換し、そこからさらにソース形式に戻すこと。
 
-This is a good way of gaining confidence that the target format richly models
-the source format. This is particularly relevant in the MLIR context, since
-MLIR's multi-level nature allows for easily writing target dialects that model a
-source format (such as TensorFlow GraphDef or another non-MLIR format)
-faithfully and have a simple conversion procedure. Further cleanup/lowering can
-be done entirely within the MLIR representation. This separation - making the
-[importer](#import) as simple as possible and performing all further
-cleanups/lowering in MLIR - has proven to be a useful design pattern.
+これはターゲットの形式がソースの形式を十分にモデルできている確証を得る良い方法です。
+これは MLIR の文脈では特に重要です。
+なぜならば、 MLIR の多層であるという特性により、
+TensorFlow GraphDef や他の MLIR ではないようなソースの形式を忠実にモデルし、
+そして単純な変換方法を持つようなターゲットの形式を簡単に書けるためです。
+さらなる整頓やローワリングは完全に MLIR の表現内で行うことができます。
+[インポータ](#import) を可能な限りシンプルにし他のさらなる処理は MLIR で行うというこの責務分割は、
+有用な設計パターンであることが実証されています。
 
 #### [ターミネータ op](../docs/LangRef#control-flow-and-ssacfg-regions)
 
-An [operation](#operation-op) which *must* terminate a [block](#block).
-Terminator operations are a special category of operations.
+そこで [ブロック](#block) が **必ず** 終了するような [op](#operation-op)。
+ターミネータ op はオペレーションの中でも特別なカテゴリです。
 
 #### 推移的ローワリング
 
-An A->B->C [lowering](#lowering); that is, a lowering in which multiple patterns
-may be applied in order to fully transform an illegal operation into a set of
-legal ones.
+A->B->C と移る [ローワリング](#lowering)。すなわち、
+違法な op を合法なものに全て変換するのに複数のパターンを適用できるローワリング。
 
-This provides the flexibility that the [conversion](#conversion) framework may
-perform the lowering in multiple stages of applying patterns (which may utilize
-intermediate patterns not in the conversion target) in order to fully legalize
-an operation. This is accomplished through
-[partial conversion](../docs/DialectConversion#modes-of-conversion).
+これにより、[変換](#conversion) フレームワークが op を完全に合法化するのに、
+複数のパターン適用ステージ (変換ターゲットに含まれない中間パターンの使用も可)
+を通じてローワリングを行えるような柔軟性が提供されます。
+これは [部分変換](../docs/DialectConversion#modes-of-conversion) により実現されます。
 
 #### 翻訳
 
-The transformation of code represented in an external (non-MLIR) representation
-into a semantically equivalent representation in MLIR (i.e.
-[importing](#import)), or the inverse (i.e. [exporting](#export)).
+外部の (MLIR ではない) 表現で表されたコードを、
+意味が等しい MLIR のコードに変換する (つまり [インポート](#import))、
+もしくはその逆を行うこと (つまり [エクスポート](#export))。
 
-In the context of MLIR, translation is distinct from [conversion](#conversion).
-Translation refers to a transformation between MLIR and an external
-representation, whereas conversion refers to a transformation within MLIR
-(between or within dialects).
+MLIR の文脈では、「翻訳」と[「変換」](#conversion)は違う意味で使われています。
+「翻訳」は MLIR と外部の表現との間の変換を指します。
+一方「変換」は MLIR 内部 (方言間 あるいは方言内) で変換を行います。
